@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">amazonka-cloudwatch-logs-0.0.1.0: Amazon CloudWatch Logs SDK</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Tests the filter pattern of a metric filter against a sample of log event
+ messages. You can use this operation to validate the correctness of a
+ metric filter pattern. Test a metric filter pattern on Apache access.log
+ events The following is an example of a TestMetricFilter request and
+ response. POST <em> HTTP</em>1.1 Host: logs.. X-Amz-Date: Authorization:
+ AWS4-HMAC-SHA256 Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;: &quot;[ip,
+ identity, user_id, timestamp, request, status_code, size]&quot;,
+ &quot;logEventMessages&quot;: [ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;, &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 500 5324&quot;,
+ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET /apache_pb.gif
+ HTTP<em>1.0&quot; 200 4355&quot; ] } HTTP</em>1.1 200 OK x-amzn-RequestId: Content-Type:
+ application/x-amz-json-1.1 Content-Length: Date: ]]&gt; { &quot;matches&quot;: [ {
+ &quot;eventNumber&quot;: 0, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15
+ -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;, &quot;extractedValues&quot;: {
+ &quot;$status_code&quot;: &quot;200&quot;, &quot;$identity&quot;: &quot;-&quot;, &quot;$request&quot;: &quot;GET /apache_pb.gif
+ HTTP/1.0&quot;, &quot;$size&quot;: &quot;1534,&quot;, &quot;$user_id&quot;: &quot;frank&quot;, &quot;$ip&quot;: &quot;127.0.0.1&quot;,
+ &quot;$timestamp&quot;: &quot;10<em>Oct</em>2000:13:25:15 -0700&quot; } }, { &quot;eventNumber&quot;: 1,
+ &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 500 5324&quot;, &quot;extractedValues&quot;: { &quot;$status_code&quot;:
+ &quot;500&quot;, &quot;$identity&quot;: &quot;-&quot;, &quot;$request&quot;: &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;,
+ &quot;$size&quot;: &quot;5324,&quot;, &quot;$user_id&quot;: &quot;frank&quot;, &quot;$ip&quot;: &quot;127.0.0.1&quot;, &quot;$timestamp&quot;:
+ &quot;10<em>Oct</em>2000:13:35:22 -0700&quot; } }, { &quot;eventNumber&quot;: 2, &quot;eventMessage&quot;:
+ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET /apache_pb.gif
+ HTTP/1.0&quot; 200 4355&quot;, &quot;extractedValues&quot;: { &quot;$status_code&quot;: &quot;200&quot;,
+ &quot;$identity&quot;: &quot;-&quot;, &quot;$request&quot;: &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$size&quot;:
+ &quot;4355&quot;, &quot;$user_id&quot;: &quot;frank&quot;, &quot;$ip&quot;: &quot;127.0.0.1&quot;, &quot;$timestamp&quot;:
+ &quot;10<em>Oct</em>2000:13:50:35 -0700&quot; } } ] } Test a metric filter pattern on Apache
+ access.log events without specifying all the fields The following is an
+ example of a TestMetricFilter request and response. POST <em> HTTP</em>1.1 Host:
+ logs.. X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;: &quot;[...,
+ size]&quot;, &quot;logEventMessages&quot;: [ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15
+ -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;, &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 500 5324&quot;,
+ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET /apache_pb.gif
+ HTTP<em>1.0&quot; 200 4355&quot; ] } HTTP</em>1.1 200 OK x-amzn-RequestId: Content-Type:
+ application/x-amz-json-1.1 Content-Length: Date: ]]&gt; { &quot;matches&quot;: [ {
+ &quot;eventNumber&quot;: 0, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15
+ -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;, &quot;extractedValues&quot;: {
+ &quot;$size&quot;: &quot;1534&quot;, &quot;$6&quot;: &quot;200&quot;, &quot;$4&quot;: &quot;10<em>Oct</em>2000:13:25:15 -0700&quot;, &quot;$5&quot;:
+ &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot;
+ } }, { &quot;eventNumber&quot;: 1, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 500 5324&quot;,
+ &quot;extractedValues&quot;: { &quot;$size&quot;: &quot;5324&quot;, &quot;$6&quot;: &quot;500&quot;, &quot;$4&quot;:
+ &quot;10<em>Oct</em>2000:13:35:22 -0700&quot;, &quot;$5&quot;: &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;:
+ &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } }, { &quot;eventNumber&quot;: 2,
+ &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 200 4355&quot;, &quot;extractedValues&quot;: { &quot;$size&quot;: &quot;4355&quot;,
+ &quot;$6&quot;: &quot;200&quot;, &quot;$4&quot;: &quot;10<em>Oct</em>2000:13:50:35 -0700&quot;, &quot;$5&quot;: &quot;GET /apache_pb.gif
+ HTTP/1.0&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } } ] } Test a
+ metric filter pattern on Apache access.log events without specifying any
+ fields The following is an example of a TestMetricFilter request and
+ response. POST <em> HTTP</em>1.1 Host: logs.. X-Amz-Date: Authorization:
+ AWS4-HMAC-SHA256 Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;: &quot;[]&quot;,
+ &quot;logEventMessages&quot;: [ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;, &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 500 5324&quot;,
+ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET /apache_pb.gif
+ HTTP<em>1.0&quot; 200 4355&quot; ] } HTTP</em>1.1 200 OK x-amzn-RequestId: Content-Type:
+ application/x-amz-json-1.1 Content-Length: Date: ]]&gt; { &quot;matches&quot;: [ {
+ &quot;eventNumber&quot;: 0, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15
+ -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;, &quot;extractedValues&quot;: {
+ &quot;$7&quot;: &quot;1534&quot;, &quot;$6&quot;: &quot;200&quot;, &quot;$4&quot;: &quot;10<em>Oct</em>2000:13:25:15 -0700&quot;, &quot;$5&quot;: &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } },
+ { &quot;eventNumber&quot;: 1, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 500 5324&quot;,
+ &quot;extractedValues&quot;: { &quot;$7&quot;: &quot;5324&quot;, &quot;$6&quot;: &quot;500&quot;, &quot;$4&quot;: &quot;10<em>Oct</em>2000:13:35:22
+ -0700&quot;, &quot;$5&quot;: &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;,
+ &quot;$1&quot;: &quot;127.0.0.1&quot; } }, { &quot;eventNumber&quot;: 2, &quot;eventMessage&quot;: &quot;127.0.0.1 -
+ frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200
+ 4355&quot;, &quot;extractedValues&quot;: { &quot;$7&quot;: &quot;4355&quot;, &quot;$6&quot;: &quot;200&quot;, &quot;$4&quot;:
+ &quot;10<em>Oct</em>2000:13:50:35 -0700&quot;, &quot;$5&quot;: &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;:
+ &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } } ] } Test a metric filter pattern
+ that matches successful requests in Apache access.log events The following
+ is an example of a TestMetricFilter request and response. POST <em> HTTP</em>1.1
+ Host: logs.. X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;: &quot;[...,
+ status_code=200, size]&quot;, &quot;logEventMessages&quot;: [ &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;,
+ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET /apache_pb.gif
+ HTTP<em>1.0&quot; 500 5324&quot;, &quot;127.0.0.1 - frank [10</em>Oct/2000:13:50:35 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 200 4355&quot; ] } HTTP/1.1 200 OK x-amzn-RequestId:
+ Content-Type: application/x-amz-json-1.1 Content-Length: Date: ]]&gt; {
+ &quot;matches&quot;: [ { &quot;eventNumber&quot;: 0, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot; 200 1534&quot;,
+ &quot;extractedValues&quot;: { &quot;$status_code&quot;: &quot;200&quot;, &quot;$size&quot;: &quot;1534&quot;, &quot;$4&quot;:
+ &quot;10<em>Oct</em>2000:13:25:15 -0700&quot;, &quot;$5&quot;: &quot;GET <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;:
+ &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } }, { &quot;eventNumber&quot;: 2,
+ &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:50:35 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 200 4355&quot;, &quot;extractedValues&quot;: { &quot;$status_code&quot;:
+ &quot;200&quot;, &quot;$size&quot;: &quot;4355&quot;, &quot;$4&quot;: &quot;10<em>Oct</em>2000:13:50:35 -0700&quot;, &quot;$5&quot;: &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } } ]
+ } Test a metric filter pattern that matches 4XX response codes for html
+ pages in Apache access.log events The following is an example of a
+ TestMetricFilter request and response. POST <em> HTTP</em>1.1 Host: logs..
+ X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;: &quot;[...,
+ request=*.html*, status_code=4*,]&quot;, &quot;logEventMessages&quot;: [ &quot;127.0.0.1 -
+ frank [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET <em>index.html HTTP</em>1.0&quot; 404 1534&quot;,
+ &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:35:22 -0700] &quot;GET <em>about-us</em>index.html
+ HTTP<em>1.0&quot; 200 5324&quot;, &quot;127.0.0.1 - frank [10</em>Oct/2000:13:50:35 -0700] &quot;GET
+ <em>apache_pb.gif HTTP</em>1.0&quot; 404 4355&quot;, &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET <em>products</em>index.html HTTP/1.0&quot; 400
+ 1534&quot;, ] } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
+ application/x-amz-json-1.1 Content-Length: Date: ]]&gt; { &quot;matches&quot;: [ {
+ &quot;eventNumber&quot;: 0, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank [10<em>Oct</em>2000:13:25:15
+ -0700] &quot;GET <em>index.html HTTP</em>1.0&quot; 404 1534&quot;, &quot;extractedValues&quot;: {
+ &quot;$status_code&quot;: &quot;404&quot;, &quot;$request&quot;: &quot;GET <em>index.html HTTP</em>1.0&quot;, &quot;$7&quot;:
+ &quot;1534&quot;, &quot;$4&quot;: &quot;10<em>Oct</em>2000:13:25:15 -0700&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;:
+ &quot;127.0.0.1&quot; } }, { &quot;eventNumber&quot;: 3, &quot;eventMessage&quot;: &quot;127.0.0.1 - frank
+ [10<em>Oct</em>2000:13:25:15 -0700] &quot;GET <em>products</em>index.html HTTP/1.0&quot; 400
+ 1534&quot;, &quot;extractedValues&quot;: { &quot;$status_code&quot;: &quot;400&quot;, &quot;$request&quot;: &quot;GET
+ <em>products</em>index.html HTTP<em>1.0&quot;, &quot;$7&quot;: &quot;1534&quot;, &quot;$4&quot;: &quot;10</em>Oct/2000:13:25:15
+ -0700&quot;, &quot;$2&quot;: &quot;-&quot;, &quot;$3&quot;: &quot;frank&quot;, &quot;$1&quot;: &quot;127.0.0.1&quot; } } ] } Test a metric
+ filter pattern that matches occurrences of &quot;[ERROR]&quot; in log events The
+ following is an example of a TestMetricFilter request and response. POST /
+ HTTP/1.1 Host: logs.. X-Amz-Date: Authorization: AWS4-HMAC-SHA256
+ Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;:
+ &quot;&quot;[ERROR]&quot;&quot;, &quot;logEventMessages&quot;: [ &quot;02 May 2014 00:34:12,525 [INFO]
+ Starting the application&quot;, &quot;02 May 2014 00:35:14,245 [DEBUG] Database
+ connection established&quot;, &quot;02 May 2014 00:34:14,663 [INFO] Executing SQL
+ Query&quot;, &quot;02 May 2014 00:34:16,142 [ERROR] Unhanded exception:
+ InvalidQueryException&quot;, &quot;02 May 2014 00:34:16,224 [ERROR] Terminating the
+ application&quot; ] } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
+ application/x-amz-json-1.1 Content-Length: Date: ]]&gt; { &quot;matches&quot;: [ {
+ &quot;eventNumber&quot;: 3, &quot;eventMessage&quot;: &quot;02 May 2014 00:34:16,142 [ERROR]
+ Unhanded exception: InvalidQueryException&quot;, &quot;extractedValues&quot;: {} }, {
+ &quot;eventNumber&quot;: 4, &quot;eventMessage&quot;: &quot;02 May 2014 00:34:16,224 [ERROR]
+ Terminating the application&quot;, &quot;extractedValues&quot;: {} } ] } Test a metric
+ filter pattern that matches occurrences of &quot;[ERROR]&quot; and <a href="Exception.html">Exception</a> in log
+ events The following is an example of a TestMetricFilter request and
+ response. POST <em> HTTP</em>1.1 Host: logs.. X-Amz-Date: Authorization:
+ AWS4-HMAC-SHA256 Credential=,
+ SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
+ Signature= User-Agent: Accept: application/json Content-Type:
+ application/x-amz-json-1.1 Content-Length: Connection: Keep-Alive]]&gt;
+ X-Amz-Target: Logs_20140328.TestMetricFilter { &quot;filterPattern&quot;:
+ &quot;&quot;[ERROR]&quot; Exception&quot;, &quot;logEventMessages&quot;: [ &quot;02 May 2014 00:34:12,525
+ [INFO] Starting the application&quot;, &quot;02 May 2014 00:35:14,245 [DEBUG]
+ Database connection established&quot;, &quot;02 May 2014 00:34:14,663 [INFO]
+ Executing SQL Query&quot;, &quot;02 May 2014 00:34:16,142 [ERROR] Unhanded exception:
+ InvalidQueryException&quot;, &quot;02 May 2014 00:34:16,224 [ERROR] Terminating the
+ application&quot; ] } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
+ application/x-amz-json-1.1 Content-Length: Date: ]]&gt; { &quot;matches&quot;: [ {
+ &quot;eventNumber&quot;: 3, &quot;eventMessage&quot;: &quot;02 May 2014 00:34:16,142 [ERROR]
+ Unhanded exception: InvalidQueryException&quot;, &quot;extractedValues&quot;: {} } ] }.</p></div></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:TestMetricFilter" class="def">TestMetricFilter</a></p><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a name="v:TestMetricFilter" class="def">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><div class="subs fields"><p class="caption">Fields</p><dl><dt class="src"><a name="v:_tmfrFilterPattern" class="def">_tmfrFilterPattern</a> :: Text</dt><dd class="doc empty">&nbsp;</dd><dt class="src"><a name="v:_tmfrLogEventMessages" class="def">_tmfrLogEventMessages</a> :: [Text]</dt><dd class="doc empty">&nbsp;</dd></dl><div class="clear"></div></div></td></tr></table></div><div class="subs instances"><p id="control.i:TestMetricFilter" class="caption collapser" onclick="toggleSection('i:TestMetricFilter')">Instances</p><div id="section.i:TestMetricFilter" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Generic">Generic</a> <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">AWSRequest <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToQuery <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToPath <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToHeaders <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToJSON <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Rep">Rep</a> <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> Sv <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a> = <a href="Network-AWS-CloudWatchLogs-V2014_03_28-Types.html#t:CloudWatchLogs">CloudWatchLogs</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> Rs <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a> = <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilterResponse">TestMetricFilterResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><div class="top"><p class="src"><a name="v:tmfrLogEventMessages" class="def">tmfrLogEventMessages</a> :: Lens' <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a> [Text]</p></div><div class="top"><p class="src"><a name="v:tmfrFilterPattern" class="def">tmfrFilterPattern</a> :: Lens' <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilter">TestMetricFilter</a> Text</p></div><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:TestMetricFilterResponse" class="def">TestMetricFilterResponse</a></p><div class="subs constructors"><p class="caption">Constructors</p><table><tr><td class="src"><a name="v:TestMetricFilterResponse" class="def">TestMetricFilterResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td colspan="2"><div class="subs fields"><p class="caption">Fields</p><dl><dt class="src"><a name="v:_tmfsMatches" class="def">_tmfsMatches</a> :: [<a href="Network-AWS-CloudWatchLogs-V2014_03_28-Types.html#t:MetricFilterMatchRecord">MetricFilterMatchRecord</a>]</dt><dd class="doc empty">&nbsp;</dd></dl><div class="clear"></div></div></td></tr></table></div><div class="subs instances"><p id="control.i:TestMetricFilterResponse" class="caption collapser" onclick="toggleSection('i:TestMetricFilterResponse')">Instances</p><div id="section.i:TestMetricFilterResponse" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilterResponse">TestMetricFilterResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Generic">Generic</a> <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilterResponse">TestMetricFilterResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">FromJSON <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilterResponse">TestMetricFilterResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Rep">Rep</a> <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilterResponse">TestMetricFilterResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><div class="top"><p class="src"><a name="v:tmfsMatches" class="def">tmfsMatches</a> :: Iso' <a href="Network-AWS-CloudWatchLogs-V2014_03_28-TestMetricFilter.html#t:TestMetricFilterResponse">TestMetricFilterResponse</a> [<a href="Network-AWS-CloudWatchLogs-V2014_03_28-Types.html#t:MetricFilterMatchRecord">MetricFilterMatchRecord</a>]</p></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.14.2</p></div></body></html>
