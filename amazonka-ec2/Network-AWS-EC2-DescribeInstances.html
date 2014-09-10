@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Network.AWS.EC2.DescribeInstances</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-EC2-DescribeInstances.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">amazonka-ec2-0.0.0: Amazon Elastic Compute Cloud SDK</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Network.AWS.EC2.DescribeInstances</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Request</a><ul><li><a href="#g:2">Request constructor</a></li><li><a href="#g:3">Request lenses</a></li></ul></li><li><a href="#g:4">Response</a><ul><li><a href="#g:5">Response constructor</a></li><li><a href="#g:6">Response lenses</a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Describes one or more of your instances. If you specify one or more
+ instance IDs, Amazon EC2 returns information for those instances. If you do
+ not specify instance IDs, Amazon EC2 returns information for all relevant
+ instances. If you specify an instance ID that is not valid, an error is
+ returned. If you specify an instance that you do not own, it is not
+ included in the returned results. Recently terminated instances might
+ appear in the returned results. This interval is usually less than one
+ hour. Example 1 This example describes all instances owned by your AWS
+ account. The example response shows information for one instance.
+ https:/<em>ec2.amazonaws.com</em>?Action=DescribeInstances &amp;amp;AUTHPARAMS
+ &amp;lt;DescribeInstancesResponse
+ xmlns=&quot;<a href="http://ec2.amazonaws.com/doc/2013-10-01/&quot;&amp;gt;">http://ec2.amazonaws.com/doc/2013-10-01/&quot;&amp;gt;</a>
+ &amp;lt;requestId&amp;gt;fdcdcab1-ae5c-489e-9c33-4637c5dda355&amp;lt;/requestId&amp;gt;
+ &amp;lt;reservationSet&amp;gt; &amp;lt;item&amp;gt;
+ &amp;lt;reservationId&amp;gt;r-1a2b3c4d&amp;lt;/reservationId&amp;gt;
+ &amp;lt;ownerId&amp;gt;123456789012&amp;lt;/ownerId&amp;gt; &amp;lt;groupSet&amp;gt; &amp;lt;item&amp;gt;
+ &amp;lt;groupId&amp;gt;sg-1a2b3c4d&amp;lt;/groupId&amp;gt;
+ &amp;lt;groupName&amp;gt;my-security-group&amp;lt;<em>groupName&amp;gt; &amp;lt;</em>item&amp;gt;
+ &amp;lt;/groupSet&amp;gt; &amp;lt;instancesSet&amp;gt; &amp;lt;item&amp;gt;
+ &amp;lt;instanceId&amp;gt;i-1a2b3c4d&amp;lt;/instanceId&amp;gt;
+ &amp;lt;imageId&amp;gt;ami-1a2b3c4d&amp;lt;/imageId&amp;gt; &amp;lt;instanceState&amp;gt;
+ &amp;lt;code&amp;gt;16&amp;lt;<em>code&amp;gt; &amp;lt;name&amp;gt;running&amp;lt;</em>name&amp;gt;
+ &amp;lt;<em>instanceState&amp;gt; &amp;lt;privateDnsName</em>&amp;gt; &amp;lt;dnsName/&amp;gt;
+ &amp;lt;reason<em>&amp;gt; &amp;lt;keyName&amp;gt;my-key-pair&amp;lt;</em>keyName&amp;gt;
+ &amp;lt;amiLaunchIndex&amp;gt;0&amp;lt;<em>amiLaunchIndex&amp;gt; &amp;lt;productCodes</em>&amp;gt;
+ &amp;lt;instanceType&amp;gt;c1.medium&amp;lt;/instanceType&amp;gt;
+ &amp;lt;launchTime&amp;gt;YYYY-MM-DDTHH:MM:SS+0000&amp;lt;/launchTime&amp;gt;
+ &amp;lt;placement&amp;gt;
+ &amp;lt;availabilityZone&amp;gt;us-west-2a&amp;lt;/availabilityZone&amp;gt;
+ &amp;lt;groupName<em>&amp;gt; &amp;lt;tenancy&amp;gt;default&amp;lt;</em>tenancy&amp;gt;
+ &amp;lt;<em>placement&amp;gt; &amp;lt;platform&amp;gt;windows&amp;lt;</em>platform&amp;gt;
+ &amp;lt;monitoring&amp;gt; &amp;lt;state&amp;gt;disabled&amp;lt;<em>state&amp;gt; &amp;lt;</em>monitoring&amp;gt;
+ &amp;lt;subnetId&amp;gt;subnet-1a2b3c4d&amp;lt;/subnetId&amp;gt;
+ &amp;lt;vpcId&amp;gt;vpc-1a2b3c4d&amp;lt;/vpcId&amp;gt;
+ &amp;lt;privateIpAddress&amp;gt;10.0.0.12&amp;lt;/privateIpAddress&amp;gt;
+ &amp;lt;ipAddress&amp;gt;46.51.219.63&amp;lt;/ipAddress&amp;gt;
+ &amp;lt;sourceDestCheck&amp;gt;true&amp;lt;/sourceDestCheck&amp;gt; &amp;lt;groupSet&amp;gt;
+ &amp;lt;item&amp;gt; &amp;lt;groupId&amp;gt;sg-1a2b3c4d&amp;lt;/groupId&amp;gt;
+ &amp;lt;groupName&amp;gt;my-security-group&amp;lt;<em>groupName&amp;gt; &amp;lt;</em>item&amp;gt;
+ &amp;lt;<em>groupSet&amp;gt; &amp;lt;architecture&amp;gt;x86_64&amp;lt;</em>architecture&amp;gt;
+ &amp;lt;rootDeviceType&amp;gt;ebs&amp;lt;/rootDeviceType&amp;gt;
+ &amp;lt;rootDeviceName&amp;gt;<em>dev</em>sda1&amp;lt;/rootDeviceName&amp;gt;
+ &amp;lt;blockDeviceMapping&amp;gt; &amp;lt;item&amp;gt;
+ &amp;lt;deviceName&amp;gt;<em>dev</em>sda1&amp;lt;/deviceName&amp;gt; &amp;lt;ebs&amp;gt;
+ &amp;lt;volumeId&amp;gt;vol-1a2b3c4d&amp;lt;/volumeId&amp;gt;
+ &amp;lt;status&amp;gt;attached&amp;lt;/status&amp;gt;
+ &amp;lt;attachTime&amp;gt;YYYY-MM-DDTHH:MM:SS.SSSZ&amp;lt;/attachTime&amp;gt;
+ &amp;lt;deleteOnTermination&amp;gt;true&amp;lt;<em>deleteOnTermination&amp;gt; &amp;lt;</em>ebs&amp;gt;
+ &amp;lt;<em>item&amp;gt; &amp;lt;</em>blockDeviceMapping&amp;gt;
+ &amp;lt;virtualizationType&amp;gt;hvm&amp;lt;/virtualizationType&amp;gt;
+ &amp;lt;clientToken&amp;gt;ABCDE1234567890123&amp;lt;/clientToken&amp;gt; &amp;lt;tagSet&amp;gt;
+ &amp;lt;item&amp;gt; &amp;lt;key&amp;gt;Name&amp;lt;/key&amp;gt; &amp;lt;value&amp;gt;Windows
+ Instance&amp;lt;<em>value&amp;gt; &amp;lt;</em>item&amp;gt; &amp;lt;/tagSet&amp;gt;
+ &amp;lt;hypervisor&amp;gt;xen&amp;lt;/hypervisor&amp;gt; &amp;lt;networkInterfaceSet&amp;gt;
+ &amp;lt;item&amp;gt;
+ &amp;lt;networkInterfaceId&amp;gt;eni-1a2b3c4d&amp;lt;/networkInterfaceId&amp;gt;
+ &amp;lt;subnetId&amp;gt;subnet-1a2b3c4d&amp;lt;/subnetId&amp;gt;
+ &amp;lt;vpcId&amp;gt;vpc-1a2b3c4d&amp;lt;/vpcId&amp;gt; &amp;lt;description&amp;gt;Primary network
+ interface&amp;lt;<em>description&amp;gt; &amp;lt;ownerId&amp;gt;123456789012&amp;lt;</em>ownerId&amp;gt;
+ &amp;lt;status&amp;gt;in-use&amp;lt;/status&amp;gt;
+ &amp;lt;macAddress&amp;gt;1b:2b:3c:4d:5e:6f&amp;lt;/macAddress&amp;gt;
+ &amp;lt;privateIpAddress&amp;gt;10.0.0.12&amp;lt;/privateIpAddress&amp;gt;
+ &amp;lt;sourceDestCheck&amp;gt;true&amp;lt;/sourceDestCheck&amp;gt; &amp;lt;groupSet&amp;gt;
+ &amp;lt;item&amp;gt; &amp;lt;groupId&amp;gt;sg-1a2b3c4d&amp;lt;/groupId&amp;gt;
+ &amp;lt;groupName&amp;gt;my-security-group&amp;lt;<em>groupName&amp;gt; &amp;lt;</em>item&amp;gt;
+ &amp;lt;/groupSet&amp;gt; &amp;lt;attachment&amp;gt;
+ &amp;lt;attachmentId&amp;gt;eni-attach-1a2b3c4d&amp;lt;/attachmentId&amp;gt;
+ &amp;lt;deviceIndex&amp;gt;0&amp;lt;/deviceIndex&amp;gt;
+ &amp;lt;status&amp;gt;attached&amp;lt;/status&amp;gt;
+ &amp;lt;attachTime&amp;gt;YYYY-MM-DDTHH:MM:SS+0000&amp;lt;/attachTime&amp;gt;
+ &amp;lt;deleteOnTermination&amp;gt;true&amp;lt;/deleteOnTermination&amp;gt;
+ &amp;lt;/attachment&amp;gt; &amp;lt;association&amp;gt;
+ &amp;lt;publicIp&amp;gt;198.51.100.63&amp;lt;/publicIp&amp;gt;
+ &amp;lt;ipOwnerId&amp;gt;123456789012&amp;lt;<em>ipOwnerId&amp;gt; &amp;lt;</em>association&amp;gt;
+ &amp;lt;privateIpAddressesSet&amp;gt; &amp;lt;item&amp;gt;
+ &amp;lt;privateIpAddress&amp;gt;10.0.0.12&amp;lt;/privateIpAddress&amp;gt;
+ &amp;lt;primary&amp;gt;true&amp;lt;/primary&amp;gt; &amp;lt;association&amp;gt;
+ &amp;lt;publicIp&amp;gt;198.51.100.63&amp;lt;/publicIp&amp;gt;
+ &amp;lt;ipOwnerId&amp;gt;123456789012&amp;lt;<em>ipOwnerId&amp;gt; &amp;lt;</em>association&amp;gt;
+ &amp;lt;/item&amp;gt; &amp;lt;item&amp;gt;
+ &amp;lt;privateIpAddress&amp;gt;10.0.0.14&amp;lt;/privateIpAddress&amp;gt;
+ &amp;lt;primary&amp;gt;false&amp;lt;/primary&amp;gt; &amp;lt;association&amp;gt;
+ &amp;lt;publicIp&amp;gt;198.51.100.177&amp;lt;/publicIp&amp;gt;
+ &amp;lt;ipOwnerId&amp;gt;123456789012&amp;lt;<em>ipOwnerId&amp;gt; &amp;lt;</em>association&amp;gt;
+ &amp;lt;<em>item&amp;gt; &amp;lt;</em>privateIpAddressesSet&amp;gt; &amp;lt;/item&amp;gt;
+ &amp;lt;<em>networkInterfaceSet&amp;gt; &amp;lt;</em>item&amp;gt; &amp;lt;/instancesSet&amp;gt;
+ &amp;lt;<em>item&amp;gt; &amp;lt;</em>reservationSet&amp;gt; &amp;lt;/DescribeInstancesResponse&amp;gt;
+ Example 2 This example describes only the instances that have the m1.small
+ or m1.large instance type and an attached Amazon EBS volume that will be
+ deleted on termination. https:/<em>ec2.amazonaws.com</em>?Action=DescribeInstances
+ &amp;amp;Filter.1.Name=instance-type &amp;amp;Filter.1.Value.1=m1.small
+ &amp;amp;Filter.1.Value.2=m1.large
+ &amp;amp;Filter.2.Name=block-device-mapping.status
+ &amp;amp;Filter.2.Value.1=attached
+ &amp;amp;Filter.3.Name=block-device-mapping.delete-on-termination
+ &amp;amp;Filter.3.Value.1=true &amp;amp;AUTHPARAMS Example 3 This example describes
+ all instances that are running in a VPC.
+ https:/<em>ec2.amazonaws.com</em>?Action=DescribeInstances
+ &amp;amp;Filter.1.Name=vpc-id &amp;amp;Filter.1.Value.1=* &amp;amp;AUTHPARAMS Example 4
+ This example describes any instances that have a tag with the key Owner,
+ regardless of the value of the tag.
+ https:/<em>ec2.amazonaws.com</em>?Action=DescribeInstances
+ &amp;amp;Filter.1.Name=tag-key &amp;amp;Filter.1.Value.1=Owner &amp;amp;AUTHPARAMS
+ Example This example lists only the instances that have a tag with the key
+ Owner and the value DbAdmin.
+ https:/<em>ec2.amazonaws.com</em>?Action=DescribeInstances
+ &amp;amp;Filter.1.Name=tag:Owner &amp;amp;Filter.1.Value.1=DbAdmin &amp;amp;AUTHPARAMS.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><span class="keyword">data</span> <a href="#t:DescribeInstances">DescribeInstances</a></li><li class="src short"><a href="#v:mkDescribeInstances">mkDescribeInstances</a> :: <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></li><li class="src short"><a href="#v:di2InstanceIds">di2InstanceIds</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> [Text]</li><li class="src short"><a href="#v:di2Filters">di2Filters</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> [<a href="Network-AWS-EC2-Types.html#t:Filter">Filter</a>]</li><li class="src short"><a href="#v:di2NextToken">di2NextToken</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> Text)</li><li class="src short"><a href="#v:di2MaxResults">di2MaxResults</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Prelude.html#t:Integer">Integer</a>)</li><li class="src short"><span class="keyword">data</span> <a href="#t:DescribeInstancesResponse">DescribeInstancesResponse</a></li><li class="src short"><a href="#v:mkDescribeInstancesResponse">mkDescribeInstancesResponse</a> :: <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></li><li class="src short"><a href="#v:dirrReservations">dirrReservations</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a> [<a href="Network-AWS-EC2-Types.html#t:Reservation">Reservation</a>]</li><li class="src short"><a href="#v:dirrNextToken">dirrNextToken</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> Text)</li></ul></div><div id="interface"><h1 id="g:1">Request</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:DescribeInstances" class="def">DescribeInstances</a></p><div class="subs instances"><p id="control.i:DescribeInstances" class="caption collapser" onclick="toggleSection('i:DescribeInstances')">Instances</p><div id="section.i:DescribeInstances" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Generic">Generic</a> <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">AWSRequest <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">AWSPager <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToQuery <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Rep">Rep</a> <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> Sv <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> = <a href="Network-AWS-EC2-Types.html#t:EC2">EC2</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> Rs <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> = <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><h2 id="g:2">Request constructor</h2><div class="top"><p class="src"><a name="v:mkDescribeInstances" class="def">mkDescribeInstances</a> :: <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></p><div class="doc"><p>Smart constructor for the minimum required parameters to construct
+ a valid <code><a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a></code> request.</p><p>The fields accessible through corresponding lenses are:</p><ul><li><code>InstanceIds ::</code> <code>[Text]</code></li><li><code>Filters ::</code> <code>[Filter]</code></li><li><code>NextToken ::</code> <code>Maybe Text</code></li><li><code>MaxResults ::</code> <code>Maybe Integer</code></li></ul></div></div><h2 id="g:3">Request lenses</h2><div class="top"><p class="src"><a name="v:di2InstanceIds" class="def">di2InstanceIds</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> [Text]</p><div class="doc"><p>One or more instance IDs. Default: Describes all your instances.</p></div></div><div class="top"><p class="src"><a name="v:di2Filters" class="def">di2Filters</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> [<a href="Network-AWS-EC2-Types.html#t:Filter">Filter</a>]</p><div class="doc"><p>One or more filters. architecture - The instance architecture (i386 |
+ x86_64). availability-zone - The Availability Zone of the instance.
+ block-device-mapping.attach-time - The attach time for an Amazon EBS volume
+ mapped to the instance. block-device-mapping.delete-on-termination - A
+ Boolean that indicates whether the Amazon EBS volume is deleted on instance
+ termination. block-device-mapping.device-name - The device name for the
+ Amazon EBS volume (for example, <em>dev</em>sdh). block-device-mapping.status -
+ The status for the Amazon EBS volume (attaching | attached | detaching |
+ detached). block-device-mapping.volume-id - The volume ID of the Amazon EBS
+ volume. client-token - The idempotency token you provided when you launched
+ the instance. dns-name - The public DNS name of the instance. group-id -
+ The ID of the security group for the instance. If the instance is in
+ EC2-Classic or a default VPC, you can use group-name instead. group-name -
+ The name of the security group for the instance. If the instance is in a
+ nondefault VPC, you must use group-id instead. hypervisor - The hypervisor
+ type of the instance (ovm | xen). iam-instance-profile.arn - The instance
+ profile associated with the instance. Specified as an ARN. image-id - The
+ ID of the image used to launch the instance. instance-id - The ID of the
+ instance. instance-lifecycle - Indicates whether this is a Spot Instance
+ (spot). instance-state-code - The state of the instance, as a 16-bit
+ unsigned integer. The high byte is an opaque internal value and should be
+ ignored. The low byte is set based on the state represented. The valid
+ values are: 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated),
+ 64 (stopping), and 80 (stopped). instance-state-name - The state of the
+ instance (pending | running | shutting-down | terminated | stopping |
+ stopped). instance-type - The type of instance (for example, m1.small).
+ instance.group-id - The ID of the security group for the instance. If the
+ instance is in EC2-Classic or a default VPC, you can use
+ instance.group-name instead. instance.group-name - The name of the security
+ group for the instance. If the instance is in a nondefault VPC, you must
+ use instance.group-id instead. ip-address - The public IP address of the
+ instance. kernel-id - The kernel ID. key-name - The name of the key pair
+ used when the instance was launched. launch-index - When launching multiple
+ instances, this is the index for the instance in the launch group (for
+ example, 0, 1, 2, and so on). launch-time - The time when the instance was
+ launched. monitoring-state - Indicates whether monitoring is enabled for
+ the instance (disabled | enabled). owner-id - The AWS account ID of the
+ instance owner. placement-group-name - The name of the placement group for
+ the instance. platform - The platform. Use windows if you have Windows
+ instances; otherwise, leave blank. private-dns-name - The private DNS name
+ of the instance. private-ip-address - The private IP address of the
+ instance. product-code - The product code associated with the AMI used to
+ launch the instance. product-code.type - The type of product code (devpay |
+ marketplace). ramdisk-id - The RAM disk ID. reason - The reason for the
+ current state of the instance (for example, shows &quot;User Initiated [date]&quot;
+ when you stop or terminate the instance). Similar to the state-reason-code
+ filter. requester-id - The ID of the entity that launched the instance on
+ your behalf (for example, AWS Management Console, Auto Scaling, and so on).
+ reservation-id - The ID of the instance's reservation. A reservation ID is
+ created any time you launch an instance. A reservation ID has a one-to-one
+ relationship with an instance launch request, but can be associated with
+ more than one instance if you launch multiple instances using the same
+ launch request. For example, if you launch one instance, you'll get one
+ reservation ID. If you launch ten instances using the same launch request,
+ you'll also get one reservation ID. root-device-name - The name of the root
+ device for the instance (for example, <em>dev</em>sda1). root-device-type - The
+ type of root device that the instance uses (ebs | instance-store).
+ source-dest-check - Indicates whether the instance performs
+ source/destination checking. A value of true means that checking is
+ enabled, and false means checking is disabled. The value must be false for
+ the instance to perform network address translation (NAT) in your VPC.
+ spot-instance-request-id - The ID of the Spot Instance request.
+ state-reason-code - The reason code for the state change.
+ state-reason-message - A message that describes the state change. subnet-id
+ - The ID of the subnet for the instance. tag:key=value - The key/value
+ combination of a tag assigned to the resource, where tag:key is the tag's
+ key. tag-key - The key of a tag assigned to the resource. This filter is
+ independent of the tag-value filter. For example, if you use both the
+ filter &quot;tag-key=Purpose&quot; and the filter &quot;tag-value=X&quot;, you get any
+ resources assigned both the tag key Purpose (regardless of what the tag's
+ value is), and the tag value X (regardless of what the tag's key is). If
+ you want to list only resources where Purpose is X, see the tag:key=value
+ filter. tag-value - The value of a tag assigned to the resource. This
+ filter is independent of the tag-key filter. tenancy - The tenancy of an
+ instance (dedicated | default). virtualization-type - The virtualization
+ type of the instance (paravirtual | hvm). vpc-id - The ID of the VPC that
+ the instance is running in. network-interface.description - The description
+ of the network interface. network-interface.subnet-id - The ID of the
+ subnet for the network interface. network-interface.vpc-id - The ID of the
+ VPC for the network interface. network-interface.network-interface.id - The
+ ID of the network interface. network-interface.owner-id - The ID of the
+ owner of the network interface. network-interface.availability-zone - The
+ Availability Zone for the network interface. network-interface.requester-id
+ - The requester ID for the network interface.
+ network-interface.requester-managed - Indicates whether the network
+ interface is being managed by AWS. network-interface.status - The status of
+ the network interface (available) | in-use). network-interface.mac-address
+ - The MAC address of the network interface.
+ network-interface-private-dns-name - The private DNS name of the network
+ interface. network-interface.source-destination-check - Whether the network
+ interface performs source/destination checking. A value of true means
+ checking is enabled, and false means checking is disabled. The value must
+ be false for the network interface to perform network address translation
+ (NAT) in your VPC. network-interface.group-id - The ID of a security group
+ associated with the network interface. network-interface.group-name - The
+ name of a security group associated with the network interface.
+ network-interface.attachment.attachment-id - The ID of the interface
+ attachment. network-interface.attachment.instance-id - The ID of the
+ instance to which the network interface is attached.
+ network-interface.attachment.instance-owner-id - The owner ID of the
+ instance to which the network interface is attached.
+ network-interface.addresses.private-ip-address - The private IP address
+ associated with the network interface.
+ network-interface.attachment.device-index - The device index to which the
+ network interface is attached. network-interface.attachment.status - The
+ status of the attachment (attaching | attached | detaching | detached).
+ network-interface.attachment.attach-time - The time that the network
+ interface was attached to an instance.
+ network-interface.attachment.delete-on-termination - Specifies whether the
+ attachment is deleted when an instance is terminated.
+ network-interface.addresses.primary - Specifies whether the IP address of
+ the network interface is the primary private IP address.
+ network-interface.addresses.association.public-ip - The ID of the
+ association of an Elastic IP address with a network interface.
+ network-interface.addresses.association.ip-owner-id - The owner ID of the
+ private IP address associated with the network interface.
+ association.public-ip - The address of the Elastic IP address bound to the
+ network interface. association.ip-owner-id - The owner of the Elastic IP
+ address associated with the network interface. association.allocation-id -
+ The allocation ID returned when you allocated the Elastic IP address for
+ your network interface. association.association-id - The association ID
+ returned when the network interface was associated with an IP address.</p></div></div><div class="top"><p class="src"><a name="v:di2NextToken" class="def">di2NextToken</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> Text)</p><div class="doc"><p>The token for the next set of items to return. (You received this token
+ from a prior call.).</p></div></div><div class="top"><p class="src"><a name="v:di2MaxResults" class="def">di2MaxResults</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstances">DescribeInstances</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Prelude.html#t:Integer">Integer</a>)</p><div class="doc"><p>The maximum number of items to return for this call. The call also returns
+ a token that you can specify in a subsequent call to get the next set of
+ results. If the value is greater than 1000, we return only 1000 items.</p></div></div><h1 id="g:4">Response</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:DescribeInstancesResponse" class="def">DescribeInstancesResponse</a></p><div class="subs instances"><p id="control.i:DescribeInstancesResponse" class="caption collapser" onclick="toggleSection('i:DescribeInstancesResponse')">Instances</p><div id="section.i:DescribeInstancesResponse" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Generic">Generic</a> <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">FromXML <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/GHC-Generics.html#t:Rep">Rep</a> <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><h2 id="g:5">Response constructor</h2><div class="top"><p class="src"><a name="v:mkDescribeInstancesResponse" class="def">mkDescribeInstancesResponse</a> :: <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></p><div class="doc"><p>Smart constructor for the minimum required parameters to construct
+ a valid <code><a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a></code> response.</p><p>This constructor is provided for convenience and testing purposes.</p><p>The fields accessible through corresponding lenses are:</p><ul><li><code>Reservations ::</code> <code>[Reservation]</code></li><li><code>NextToken ::</code> <code>Maybe Text</code></li></ul></div></div><h2 id="g:6">Response lenses</h2><div class="top"><p class="src"><a name="v:dirrReservations" class="def">dirrReservations</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a> [<a href="Network-AWS-EC2-Types.html#t:Reservation">Reservation</a>]</p><div class="doc"><p>One or more reservations.</p></div></div><div class="top"><p class="src"><a name="v:dirrNextToken" class="def">dirrNextToken</a> :: Lens' <a href="Network-AWS-EC2-DescribeInstances.html#t:DescribeInstancesResponse">DescribeInstancesResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.0/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> Text)</p><div class="doc"><p>The token to use when requesting the next set of items. If there are no
+ additional items to return, the string is empty.</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.14.2</p></div></body></html>
