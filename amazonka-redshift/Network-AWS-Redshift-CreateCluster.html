@@ -17,7 +17,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-C
  cluster. Default: <code>true</code>.</p></div></div><div class="top"><p class="src"><a name="v:ccAutomatedSnapshotRetentionPeriod" class="def">ccAutomatedSnapshotRetentionPeriod</a> :: Lens' <a href="Network-AWS-Redshift-CreateCluster.html#t:CreateCluster">CreateCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Int.html#t:Int">Int</a>)</p><div class="doc"><p>The number of days that automated snapshots are retained. If the value is
  0, automated snapshots are disabled. Even if automated snapshots are
  disabled, you can still create manual snapshots when you want with
- CreateClusterSnapshot&gt;. Default: <code>1</code> Constraints: Must be a value from 0
+ <code>CreateClusterSnapshot</code>. Default: <code>1</code> Constraints: Must be a value from 0
  to 35.</p></div></div><div class="top"><p class="src"><a name="v:ccAvailabilityZone" class="def">ccAvailabilityZone</a> :: Lens' <a href="Network-AWS-Redshift-CreateCluster.html#t:CreateCluster">CreateCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
  provision the cluster. For example, if you have several EC2 instances
  running in a specific Availability Zone, then you might want the cluster

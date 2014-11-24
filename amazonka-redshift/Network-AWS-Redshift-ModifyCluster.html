@@ -15,13 +15,13 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-M
  cluster during the maintenance window. Default: <code>false</code>.</p></div></div><div class="top"><p class="src"><a name="v:mcAutomatedSnapshotRetentionPeriod" class="def">mcAutomatedSnapshotRetentionPeriod</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Int.html#t:Int">Int</a>)</p><div class="doc"><p>The number of days that automated snapshots are retained. If the value is
  0, automated snapshots are disabled. Even if automated snapshots are
  disabled, you can still create manual snapshots when you want with
- CreateClusterSnapshot&gt;. If you decrease the automated snapshot retention
+ <code>CreateClusterSnapshot</code>. If you decrease the automated snapshot retention
  period from its current value, existing automated snapshots that fall
  outside of the new retention period will be immediately deleted. Default:
  Uses existing setting. Constraints: Must be a value from 0 to 35.</p></div></div><div class="top"><p class="src"><a name="v:mcClusterIdentifier" class="def">mcClusterIdentifier</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></p><div class="doc"><p>The unique identifier of the cluster to be modified. Example:
  <code>examplecluster</code>.</p></div></div><div class="top"><p class="src"><a name="v:mcClusterParameterGroupName" class="def">mcClusterParameterGroupName</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>The name of the cluster parameter group to apply to this cluster. This
  change is applied only after the cluster is rebooted. To reboot a cluster
- use RebootCluster&gt;. Default: Uses existing setting. Constraints: The
+ use <code>RebootCluster</code>. Default: Uses existing setting. Constraints: The
  cluster parameter group must be in the same parameter group family that
  matches the cluster version.</p></div></div><div class="top"><p class="src"><a name="v:mcClusterSecurityGroups" class="def">mcClusterSecurityGroups</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> [<a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>]</p><div class="doc"><p>A list of cluster security groups to be authorized on this cluster. This
  change is asynchronously applied as soon as possible. Security groups
@@ -32,7 +32,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-M
  existing cluster goes into a read-only mode. After Amazon Redshift
  provisions a new cluster based on your resize requirements, there will be
  outage for a period while the old cluster is deleted and your connection
- is switched to the new cluster. You can use DescribeResize&gt; to track the
+ is switched to the new cluster. You can use <code>DescribeResize</code> to track the
  progress of the resize request. Valid Values: <code> multi-node | single-node
  </code>.</p></div></div><div class="top"><p class="src"><a name="v:mcClusterVersion" class="def">mcClusterVersion</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>The new version number of the Amazon Redshift engine to upgrade to. For
  major version upgrades, if a non-default cluster parameter group is
@@ -65,7 +65,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-M
  according to your resize requirements, there will be a temporary outage
  while the old cluster is deleted and your connection is switched to the
  new cluster. When the new connection is complete, the original access
- permissions for the cluster are restored. You can use DescribeResize&gt; to
+ permissions for the cluster are restored. You can use <code>DescribeResize</code> to
  track the progress of the resize request. Valid Values: <code> dw1.xlarge</code> |
  <code>dw1.8xlarge</code> | <code>dw2.large</code> | <code>dw2.8xlarge</code>.</p></div></div><div class="top"><p class="src"><a name="v:mcNumberOfNodes" class="def">mcNumberOfNodes</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Int.html#t:Int">Int</a>)</p><div class="doc"><p>The new number of nodes of the cluster. If you specify a new number of
  nodes, you must also specify the node type parameter. When you submit
@@ -75,7 +75,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-M
  outage while the old cluster is deleted and your connection is switched
  to the new cluster. When the new connection is complete, the original
  access permissions for the cluster are restored. You can use
- DescribeResize&gt; to track the progress of the resize request. Valid
+ <code>DescribeResize</code> to track the progress of the resize request. Valid
  Values: Integer greater than <code>0</code>.</p></div></div><div class="top"><p class="src"><a name="v:mcPreferredMaintenanceWindow" class="def">mcPreferredMaintenanceWindow</a> :: Lens' <a href="Network-AWS-Redshift-ModifyCluster.html#t:ModifyCluster">ModifyCluster</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>The weekly time range (in UTC) during which system maintenance can occur,
  if necessary. If system maintenance is necessary during the window, it
  may result in an outage. This maintenance window change is made

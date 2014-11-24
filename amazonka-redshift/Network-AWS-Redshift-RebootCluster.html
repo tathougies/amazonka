@@ -4,7 +4,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-R
 </script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">amazonka-redshift-0.0.2: Amazon Redshift SDK.</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Network.AWS.Redshift.RebootCluster</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Request</a><ul><li><a href="#g:2">Request constructor</a></li><li><a href="#g:3">Request lenses</a></li></ul></li><li><a href="#g:4">Response</a><ul><li><a href="#g:5">Response constructor</a></li><li><a href="#g:6">Response lenses</a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Reboots a cluster. This action is taken as soon as possible. It results in
  a momentary outage to the cluster, during which the cluster status is set
  to <code>rebooting</code>. A cluster event is created when the reboot is completed.
- Any pending cluster modifications (see ModifyCluster&gt;) are applied at this
+ Any pending cluster modifications (see <code>ModifyCluster</code>) are applied at this
  reboot. For more information about managing clusters, go to
  &lt;<a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html</a>
  Amazon Redshift Clusters&gt; in the /Amazon Redshift Cluster Management

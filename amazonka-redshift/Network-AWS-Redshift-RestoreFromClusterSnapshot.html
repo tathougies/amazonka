@@ -5,7 +5,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-R
  resulting cluster with the same configuration as the original cluster from
  which the snapshot was created, except that the new cluster is created with
  the default cluster security and parameter group. After Amazon Redshift
- creates the cluster you can use the ModifyCluster&gt; API to associate a
+ creates the cluster you can use the <code>ModifyCluster</code> API to associate a
  different security group and different parameter group with the restored
  cluster. If you restore a cluster into a VPC, you must provide a cluster
  subnet group where you want the cluster restored. For more information
@@ -17,7 +17,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Redshift-R
  Default: <code>true</code>.</p></div></div><div class="top"><p class="src"><a name="v:rfcsAutomatedSnapshotRetentionPeriod" class="def">rfcsAutomatedSnapshotRetentionPeriod</a> :: Lens' <a href="Network-AWS-Redshift-RestoreFromClusterSnapshot.html#t:RestoreFromClusterSnapshot">RestoreFromClusterSnapshot</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Int.html#t:Int">Int</a>)</p><div class="doc"><p>The number of days that automated snapshots are retained. If the value is
  0, automated snapshots are disabled. Even if automated snapshots are
  disabled, you can still create manual snapshots when you want with
- CreateClusterSnapshot&gt;. Default: The value selected for the cluster from
+ <code>CreateClusterSnapshot</code>. Default: The value selected for the cluster from
  which the snapshot was taken. Constraints: Must be a value from 0 to 35.</p></div></div><div class="top"><p class="src"><a name="v:rfcsAvailabilityZone" class="def">rfcsAvailabilityZone</a> :: Lens' <a href="Network-AWS-Redshift-RestoreFromClusterSnapshot.html#t:RestoreFromClusterSnapshot">RestoreFromClusterSnapshot</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>The Amazon EC2 Availability Zone in which to restore the cluster.
  Default: A random, system-chosen Availability Zone. Example:
  <code>us-east-1a</code>.</p></div></div><div class="top"><p class="src"><a name="v:rfcsClusterIdentifier" class="def">rfcsClusterIdentifier</a> :: Lens' <a href="Network-AWS-Redshift-RestoreFromClusterSnapshot.html#t:RestoreFromClusterSnapshot">RestoreFromClusterSnapshot</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></p><div class="doc"><p>The identifier of the cluster that will be created from restoring the

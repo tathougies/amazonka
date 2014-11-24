@@ -5,10 +5,10 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-EMR-RunJob
  the steps specified. Once the job flow completes, the cluster is stopped
  and the HDFS partition is lost. To prevent loss of data, configure the last
  step of the job flow to store results in Amazon S3. If the
- JobFlowInstancesConfig&gt; <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to
+ <code><a href="Network-AWS-EMR-Types.html#t:JobFlowInstancesConfig">JobFlowInstancesConfig</a></code> <code>KeepJobFlowAliveWhenNoSteps</code> parameter is set to
  <code>TRUE</code>, the job flow will transition to the WAITING state rather than
  shutting down once the steps have completed. For additional protection, you
- can set the JobFlowInstancesConfig&gt; <code>TerminationProtected</code> parameter to
+ can set the <code><a href="Network-AWS-EMR-Types.html#t:JobFlowInstancesConfig">JobFlowInstancesConfig</a></code> <code>TerminationProtected</code> parameter to
  <code>TRUE</code> to lock the job flow and prevent it from being terminated by API
  call, user intervention, or in the event of a job flow error. A maximum of
  256 steps are allowed in each job flow. If your job flow is long-running
@@ -25,7 +25,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-EMR-RunJob
  &quot;latest&quot; (uses the latest AMI) The version number of the AMI to use, for
  example, &quot;2.0&quot; If the AMI supports multiple versions of Hadoop (for
  example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the
- JobFlowInstancesConfig&gt; <code>HadoopVersion</code> parameter to modify the version
+ <code><a href="Network-AWS-EMR-Types.html#t:JobFlowInstancesConfig">JobFlowInstancesConfig</a></code> <code>HadoopVersion</code> parameter to modify the version
  of Hadoop from the defaults shown above. For details about the AMI
  versions currently supported by Amazon Elastic MapReduce, go to
  &lt;<a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported">http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported</a>

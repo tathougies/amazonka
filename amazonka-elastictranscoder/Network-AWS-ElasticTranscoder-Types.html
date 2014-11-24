@@ -370,7 +370,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-ElasticTra
  <code>PaddingPolicy</code> instead of <code>Resolution</code> and <code>AspectRatio</code>. The two groups
  of settings are mutually exclusive. Do not use them together. The width
  and height of thumbnail files in pixels. Specify a value in the format
- <code><em>width</em></code> x <code><em>height</em></code> where both values are even integers. The values
+ <code><em>width</em> x </code><em>height</em> where both values are even integers. The values
  cannot exceed the width and height that you specified in the
  <code>Video:Resolution</code> object.</p></div></div><div class="top"><p class="src"><a name="v:tSizingPolicy" class="def">tSizingPolicy</a> :: Lens' <a href="Network-AWS-ElasticTranscoder-Types.html#t:Thumbnails">Thumbnails</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>Specify one of the following values to control scaling of thumbnails:
  <code>Fit</code>: Elastic Transcoder scales thumbnails so they match the value that
@@ -701,8 +701,8 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-ElasticTra
  exclusive. Do not use them together. The width and height of the video in
  the output file, in pixels. Valid values are <code>auto</code> and <em>width</em> x
  <em>height</em>: <code>auto</code>: Elastic Transcoder attempts to preserve the width and
- height of the input file, subject to the following rules. <code><em>width</em> x
- <em>height</em></code>: The width and height of the output video in pixels. Note the
+ height of the input file, subject to the following rules. @<em>width</em> x
+ <em>height</em>: The width and height of the output video in pixels. Note the
  following about specifying the width and height: The width must be an
  even integer between 128 and 4096, inclusive. The height must be an even
  integer between 96 and 3072, inclusive. If you specify a resolution that

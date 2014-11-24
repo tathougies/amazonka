@@ -70,7 +70,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-STS-Assume
  role, they must pass the customer's external ID. The external ID is
  useful in order to help third parties bind a role to the customer who
  created it. For more information about the external ID, see About the
- External ID&gt; in <em>Using Temporary Security Credentials</em>.</p></div></div><div class="top"><p class="src"><a name="v:arPolicy" class="def">arPolicy</a> :: Lens' <a href="Network-AWS-STS-AssumeRole.html#t:AssumeRole">AssumeRole</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>An IAM policy in JSON format. The policy parameter is optional. If you
+ External ID in <em>Using Temporary Security Credentials</em>.</p></div></div><div class="top"><p class="src"><a name="v:arPolicy" class="def">arPolicy</a> :: Lens' <a href="Network-AWS-STS-AssumeRole.html#t:AssumeRole">AssumeRole</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>An IAM policy in JSON format. The policy parameter is optional. If you
  pass a policy, the temporary security credentials that are returned by
  the operation have the permissions that are allowed by both the access
  policy of the role that is being assumed, <em>and</em> the policy that you pass.

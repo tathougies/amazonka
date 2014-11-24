@@ -40,7 +40,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-RDS-Modify
  of the <code>PreferredMaintenanceWindow</code> setting for the DB instance. If this
  parameter is set to <code>false</code>, changes to the DB instance are applied
  during the next maintenance window. Some parameter changes can cause an
- outage and will be applied on the next call to RebootDBInstance&gt;, or the
+ outage and will be applied on the next call to <code>RebootDBInstance</code>, or the
  next failure reboot. Review the table of parameters in
  &lt;<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying">http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying</a>
  Modifying a DB Instance and Using the Apply Immediately Parameter&gt; to see
@@ -64,7 +64,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-RDS-Modify
  specified for a read replica only if the source is running MySQL 5.6
  Cannot be set to 0 if the DB instance is a source to read replicas.</p></div></div><div class="top"><p class="src"><a name="v:mdbiDBInstanceClass" class="def">mdbiDBInstanceClass</a> :: Lens' <a href="Network-AWS-RDS-ModifyDBInstance.html#t:ModifyDBInstance">ModifyDBInstance</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>The new compute and memory capacity of the DB instance. To determine the
  instance classes that are available for a particular DB engine, use the
- DescribeOrderableDBInstanceOptions&gt; action. Passing a value for this
+ <code>DescribeOrderableDBInstanceOptions</code> action. Passing a value for this
  setting causes an outage during the change and is applied during the next
  maintenance window, unless <code>ApplyImmediately</code> is specified as <code>true</code> for
  this request. Default: Uses existing setting Valid Values: <code>db.t1.micro |

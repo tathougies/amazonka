@@ -21,12 +21,12 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Route53-Li
  the <code>marker</code> parameter to get the next page of results.</p></div></div><div class="top"><p class="src"><a name="v:lrdsrMaxItems" class="def">lrdsrMaxItems</a> :: Lens' <a href="Network-AWS-Route53-ListReusableDelegationSets.html#t:ListReusableDelegationSetsResponse">ListReusableDelegationSetsResponse</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></p><div class="doc"><p>The maximum number of reusable delegation sets to be included in the
  response body. If the number of reusable delegation sets associated with
  this AWS account exceeds <code>MaxItems</code>, the value of
- ListReusablDelegationSetsResponse$IsTruncated&gt; in the response is <code>true</code>.
- Call <code>ListReusableDelegationSets</code> again and specify the value of
- ListReusableDelegationSetsResponse$NextMarker&gt; in the
- ListReusableDelegationSetsRequest$Marker&gt; element to get the next page of
- results.</p></div></div><div class="top"><p class="src"><a name="v:lrdsrNextMarker" class="def">lrdsrNextMarker</a> :: Lens' <a href="Network-AWS-Route53-ListReusableDelegationSets.html#t:ListReusableDelegationSetsResponse">ListReusableDelegationSetsResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>Indicates where to continue listing reusable delegation sets. If
- ListReusableDelegationSetsResponse$IsTruncated&gt; is <code>true</code>, make another
+ 'ListReusablDelegationSetsResponse$IsTruncated' in the response is
+ <code>true</code>. Call <code>ListReusableDelegationSets</code> again and specify the value of
+ 'ListReusableDelegationSetsResponse$NextMarker' in the
+ 'ListReusableDelegationSetsRequest$Marker' element to get the next page
+ of results.</p></div></div><div class="top"><p class="src"><a name="v:lrdsrNextMarker" class="def">lrdsrNextMarker</a> :: Lens' <a href="Network-AWS-Route53-ListReusableDelegationSets.html#t:ListReusableDelegationSetsResponse">ListReusableDelegationSetsResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>Indicates where to continue listing reusable delegation sets. If
+ 'ListReusableDelegationSetsResponse$IsTruncated' is <code>true</code>, make another
  request to <code>ListReusableDelegationSets</code> and include the value of the
  <code>NextMarker</code> element in the <code>Marker</code> element to get the next page of
  results.</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.14.3</p></div></body></html>

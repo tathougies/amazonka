@@ -20,10 +20,10 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Route53-Li
  request and specify the value of <code>NextMarker</code> from the last response in
  the <code>marker</code> parameter to get the next page of results.</p></div></div><div class="top"><p class="src"><a name="v:lhcrMaxItems" class="def">lhcrMaxItems</a> :: Lens' <a href="Network-AWS-Route53-ListHealthChecks.html#t:ListHealthChecksResponse">ListHealthChecksResponse</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></p><div class="doc"><p>The maximum number of health checks to be included in the response body.
  If the number of health checks associated with this AWS account exceeds
- <code>MaxItems</code>, the value of ListHealthChecksResponse$IsTruncated&gt; in the
+ <code>MaxItems</code>, the value of 'ListHealthChecksResponse$IsTruncated' in the
  response is <code>true</code>. Call <code>ListHealthChecks</code> again and specify the value
- of ListHealthChecksResponse$NextMarker&gt; in the
- ListHostedZonesRequest$Marker&gt; element to get the next page of results.</p></div></div><div class="top"><p class="src"><a name="v:lhcrNextMarker" class="def">lhcrNextMarker</a> :: Lens' <a href="Network-AWS-Route53-ListHealthChecks.html#t:ListHealthChecksResponse">ListHealthChecksResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>Indicates where to continue listing health checks. If
- ListHealthChecksResponse$IsTruncated&gt; is <code>true</code>, make another request to
+ of 'ListHealthChecksResponse$NextMarker' in the
+ 'ListHostedZonesRequest$Marker' element to get the next page of results.</p></div></div><div class="top"><p class="src"><a name="v:lhcrNextMarker" class="def">lhcrNextMarker</a> :: Lens' <a href="Network-AWS-Route53-ListHealthChecks.html#t:ListHealthChecksResponse">ListHealthChecksResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>Indicates where to continue listing health checks. If
+ 'ListHealthChecksResponse$IsTruncated' is <code>true</code>, make another request to
  <code>ListHealthChecks</code> and include the value of the <code>NextMarker</code> element in
  the <code>Marker</code> element to get the next page of results.</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.14.3</p></div></body></html>

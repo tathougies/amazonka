@@ -10,7 +10,7 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-Kinesis-Ge
  You can scale by provisioning multiple shards. Your application should have
  one thread per shard, each reading continuously from its stream. To read
  from a stream continually, call <code>GetRecords</code> in a loop. Use
- GetShardIterator&gt; to get the shard iterator to specify in the first
+ <code>GetShardIterator</code> to get the shard iterator to specify in the first
  <code>GetRecords</code> call. <code>GetRecords</code> returns a new shard iterator in
  <code>NextShardIterator</code>. Specify the shard iterator returned in
  <code>NextShardIterator</code> in subsequent calls to <code>GetRecords</code>. Note that if the
