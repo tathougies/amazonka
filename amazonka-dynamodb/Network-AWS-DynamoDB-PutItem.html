@@ -1,173 +1,183 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Network.AWS.DynamoDB.PutItem</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
 window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-DynamoDB-PutItem.html");};
 //]]>
-</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">amazonka-dynamodb-0.0.1: Amazon DynamoDB SDK.</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Network.AWS.DynamoDB.PutItem</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Request</a><ul><li><a href="#g:2">Request constructor</a></li><li><a href="#g:3">Request lenses</a></li></ul></li><li><a href="#g:4">Response</a><ul><li><a href="#g:5">Response constructor</a></li><li><a href="#g:6">Response lenses</a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Creates a new item, or replaces an old item with a new item. If an item
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">amazonka-dynamodb-0.0.2: Amazon DynamoDB SDK.</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Network.AWS.DynamoDB.PutItem</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Request</a><ul><li><a href="#g:2">Request constructor</a></li><li><a href="#g:3">Request lenses</a></li></ul></li><li><a href="#g:4">Response</a><ul><li><a href="#g:5">Response constructor</a></li><li><a href="#g:6">Response lenses</a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Creates a new item, or replaces an old item with a new item. If an item
  that has the same primary key as the new item already exists in the
  specified table, the new item completely replaces the existing item. You
  can perform a conditional put operation (add a new item if one with the
  specified primary key doesn't exist), or replace an existing item if it has
  certain attribute values. In addition to putting an item, you can also
  return the item's attribute values in the same operation, using the
- ReturnValues parameter. When you add an item, the primary key attribute(s)
- are the only required attributes. Attribute values cannot be null. String
- and Binary type attributes must have lengths greater than zero. Set type
- attributes cannot be empty. Requests with empty values will be rejected
- with a ValidationException exception. You can request that PutItem return
- either a copy of the original item (before the update) or a copy of the
- updated item (after the update). For more information, see the ReturnValues
- description below. For more information about using this API, see Working
- with Items in the Amazon DynamoDB Developer Guide.</p><p><a href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html">http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html</a></p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><span class="keyword">data</span> <a href="#t:PutItem">PutItem</a></li><li class="src short"><a href="#v:putItem">putItem</a> :: <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> -&gt; <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></li><li class="src short"><a href="#v:piConditionExpression">piConditionExpression</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</li><li class="src short"><a href="#v:piConditionalOperator">piConditionalOperator</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConditionalOperator">ConditionalOperator</a>)</li><li class="src short"><a href="#v:piExpected">piExpected</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:ExpectedAttributeValue">ExpectedAttributeValue</a>)</li><li class="src short"><a href="#v:piExpressionAttributeNames">piExpressionAttributeNames</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</li><li class="src short"><a href="#v:piExpressionAttributeValues">piExpressionAttributeValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</li><li class="src short"><a href="#v:piItem">piItem</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</li><li class="src short"><a href="#v:piReturnConsumedCapacity">piReturnConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnConsumedCapacity">ReturnConsumedCapacity</a>)</li><li class="src short"><a href="#v:piReturnItemCollectionMetrics">piReturnItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnItemCollectionMetrics">ReturnItemCollectionMetrics</a>)</li><li class="src short"><a href="#v:piReturnValues">piReturnValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnValue">ReturnValue</a>)</li><li class="src short"><a href="#v:piTableName">piTableName</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></li><li class="src short"><span class="keyword">data</span> <a href="#t:PutItemResponse">PutItemResponse</a></li><li class="src short"><a href="#v:putItemResponse">putItemResponse</a> :: <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></li><li class="src short"><a href="#v:pirAttributes">pirAttributes</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</li><li class="src short"><a href="#v:pirConsumedCapacity">pirConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConsumedCapacity">ConsumedCapacity</a>)</li><li class="src short"><a href="#v:pirItemCollectionMetrics">pirItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ItemCollectionMetrics">ItemCollectionMetrics</a>)</li></ul></div><div id="interface"><h1 id="g:1">Request</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:PutItem" class="def">PutItem</a></p><div class="subs instances"><p id="control.i:PutItem" class="caption collapser" onclick="toggleSection('i:PutItem')">Instances</p><div id="section.i:PutItem" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Eq.html#t:Eq">Eq</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Types.html#t:AWSRequest">AWSRequest</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:ToQuery">ToQuery</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:ToHeaders">ToHeaders</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:ToJSON">ToJSON</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:ToPath">ToPath</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> <a href="../amazonka-core/Network-AWS-Types.html#t:Rs">Rs</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> = <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> <a href="../amazonka-core/Network-AWS-Types.html#t:Sv">Sv</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> = <a href="Network-AWS-DynamoDB-Types.html#t:DynamoDB">DynamoDB</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><h2 id="g:2">Request constructor</h2><div class="top"><p class="src"><a name="v:putItem" class="def">putItem</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></td><td class="doc"><p><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piTableName">piTableName</a></code></p></td></tr><tr><td class="src">-&gt; <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p><code><a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></code> constructor.</p><p>The fields accessible through corresponding lenses are:</p><ul><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piConditionExpression">piConditionExpression</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piConditionalOperator">piConditionalOperator</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ConditionalOperator">ConditionalOperator</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piExpected">piExpected</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ExpectedAttributeValue">ExpectedAttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piExpressionAttributeNames">piExpressionAttributeNames</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piExpressionAttributeValues">piExpressionAttributeValues</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piItem">piItem</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piReturnConsumedCapacity">piReturnConsumedCapacity</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ReturnConsumedCapacity">ReturnConsumedCapacity</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piReturnItemCollectionMetrics">piReturnItemCollectionMetrics</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ReturnItemCollectionMetrics">ReturnItemCollectionMetrics</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piReturnValues">piReturnValues</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ReturnValue">ReturnValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piTableName">piTableName</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code></li></ul></div></div><h2 id="g:3">Request lenses</h2><div class="top"><p class="src"><a name="v:piConditionExpression" class="def">piConditionExpression</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>A condition that must be satisfied in order for a conditional PutItem
+ <em>ReturnValues</em> parameter. When you add an item, the primary key
+ attribute(s) are the only required attributes. Attribute values cannot be
+ null. String and Binary type attributes must have lengths greater than
+ zero. Set type attributes cannot be empty. Requests with empty values will
+ be rejected with a <em>ValidationException</em> exception. You can request that
+ <em>PutItem</em> return either a copy of the original item (before the update) or
+ a copy of the updated item (after the update). For more information, see
+ the <em>ReturnValues</em> description below. For more information about using this
+ API, see
+ &lt;<a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html</a>
+ Working with Items&gt; in the <em>Amazon DynamoDB Developer Guide</em>.</p><p><a href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html">http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html</a></p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><span class="keyword">data</span> <a href="#t:PutItem">PutItem</a></li><li class="src short"><a href="#v:putItem">putItem</a> :: <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> -&gt; <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></li><li class="src short"><a href="#v:piConditionExpression">piConditionExpression</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</li><li class="src short"><a href="#v:piConditionalOperator">piConditionalOperator</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConditionalOperator">ConditionalOperator</a>)</li><li class="src short"><a href="#v:piExpected">piExpected</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:ExpectedAttributeValue">ExpectedAttributeValue</a>)</li><li class="src short"><a href="#v:piExpressionAttributeNames">piExpressionAttributeNames</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</li><li class="src short"><a href="#v:piExpressionAttributeValues">piExpressionAttributeValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</li><li class="src short"><a href="#v:piItem">piItem</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</li><li class="src short"><a href="#v:piReturnConsumedCapacity">piReturnConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnConsumedCapacity">ReturnConsumedCapacity</a>)</li><li class="src short"><a href="#v:piReturnItemCollectionMetrics">piReturnItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnItemCollectionMetrics">ReturnItemCollectionMetrics</a>)</li><li class="src short"><a href="#v:piReturnValues">piReturnValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnValue">ReturnValue</a>)</li><li class="src short"><a href="#v:piTableName">piTableName</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></li><li class="src short"><span class="keyword">data</span> <a href="#t:PutItemResponse">PutItemResponse</a></li><li class="src short"><a href="#v:putItemResponse">putItemResponse</a> :: <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></li><li class="src short"><a href="#v:pirAttributes">pirAttributes</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</li><li class="src short"><a href="#v:pirConsumedCapacity">pirConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConsumedCapacity">ConsumedCapacity</a>)</li><li class="src short"><a href="#v:pirItemCollectionMetrics">pirItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ItemCollectionMetrics">ItemCollectionMetrics</a>)</li></ul></div><div id="interface"><h1 id="g:1">Request</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:PutItem" class="def">PutItem</a></p><div class="subs instances"><p id="control.i:PutItem" class="caption collapser" onclick="toggleSection('i:PutItem')">Instances</p><div id="section.i:PutItem" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Eq.html#t:Eq">Eq</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:ToJSON">ToJSON</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">AWSRequest <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToQuery <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToPath <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src">ToHeaders <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> Sv <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> = <a href="Network-AWS-DynamoDB-Types.html#t:DynamoDB">DynamoDB</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><span class="keyword">type</span> Rs <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> = <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><h2 id="g:2">Request constructor</h2><div class="top"><p class="src"><a name="v:putItem" class="def">putItem</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></td><td class="doc"><p><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piTableName">piTableName</a></code></p></td></tr><tr><td class="src">-&gt; <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p><code><a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a></code> constructor.</p><p>The fields accessible through corresponding lenses are:</p><ul><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piConditionExpression">piConditionExpression</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piConditionalOperator">piConditionalOperator</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ConditionalOperator">ConditionalOperator</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piExpected">piExpected</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ExpectedAttributeValue">ExpectedAttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piExpressionAttributeNames">piExpressionAttributeNames</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piExpressionAttributeValues">piExpressionAttributeValues</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piItem">piItem</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piReturnConsumedCapacity">piReturnConsumedCapacity</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ReturnConsumedCapacity">ReturnConsumedCapacity</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piReturnItemCollectionMetrics">piReturnItemCollectionMetrics</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ReturnItemCollectionMetrics">ReturnItemCollectionMetrics</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piReturnValues">piReturnValues</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ReturnValue">ReturnValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:piTableName">piTableName</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code></li></ul></div></div><h2 id="g:3">Request lenses</h2><div class="top"><p class="src"><a name="v:piConditionExpression" class="def">piConditionExpression</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>A condition that must be satisfied in order for a conditional <em>PutItem</em>
  operation to succeed. An expression can contain any of the following:
- Boolean functions: ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH Comparison
- operators: = | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= |
- BETWEEN | IN Logical operators: NOT | AND | OR.</p></div></div><div class="top"><p class="src"><a name="v:piConditionalOperator" class="def">piConditionalOperator</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConditionalOperator">ConditionalOperator</a>)</p><div class="doc"><p>There is a newer parameter available. Use ConditionExpression instead.
- Note that if you use ConditionalOperator and ConditionExpression at the
- same time, DynamoDB will return a ValidationException exception. This
- parameter does not support lists or maps. A logical operator to apply to
- the conditions in the Expected map: AND - If all of the conditions
- evaluate to true, then the entire map evaluates to true. OR - If at least
- one of the conditions evaluate to true, then the entire map evaluates to
- true. If you omit ConditionalOperator, then AND is the default. The
- operation will succeed only if the entire map evaluates to true.</p></div></div><div class="top"><p class="src"><a name="v:piExpected" class="def">piExpected</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:ExpectedAttributeValue">ExpectedAttributeValue</a>)</p><div class="doc"><p>There is a newer parameter available. Use ConditionExpression instead.
- Note that if you use Expected and ConditionExpression at the same time,
- DynamoDB will return a ValidationException exception. This parameter does
- not support lists or maps. A map of attribute/condition pairs. Expected
- provides a conditional block for the PutItem operation. Each element of
- Expected consists of an attribute name, a comparison operator, and one or
- more values. DynamoDB compares the attribute with the value(s) you
- supplied, using the comparison operator. For each Expected element, the
- result of the evaluation is either true or false. If you specify more
- than one element in the Expected map, then by default all of the
- conditions must evaluate to true. In other words, the conditions are
- ANDed together. (You can use the ConditionalOperator parameter to OR the
- conditions instead. If you do this, then at least one of the conditions
- must evaluate to true, rather than all of them.) If the Expected map
- evaluates to true, then the conditional operation succeeds; otherwise, it
- fails. Expected contains the following: AttributeValueList - One or more
- values to evaluate against the supplied attribute. The number of values
- in the list depends on the ComparisonOperator being used. For type
- Number, value comparisons are numeric. String value comparisons for
- greater than, equals, or less than are based on ASCII character code
- values. For example, a is greater than A, and aa is greater than B. For a
+ Boolean functions: <code>ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH</code> Comparison
+ operators: <code> = | &lt;&gt; | <a href="|">|</a> | <a href="=">|</a>= | BETWEEN | IN</code> Logical operators:
+ <code>NOT | AND | OR</code>.</p></div></div><div class="top"><p class="src"><a name="v:piConditionalOperator" class="def">piConditionalOperator</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConditionalOperator">ConditionalOperator</a>)</p><div class="doc"><p>There is a newer parameter available. Use <em>ConditionExpression</em> instead.
+ Note that if you use <em>ConditionalOperator</em> and <em> ConditionExpression </em> at
+ the same time, DynamoDB will return a <em>ValidationException</em> exception.
+ This parameter does not support lists or maps. A logical operator to
+ apply to the conditions in the <em>Expected</em> map: <code>AND</code> - If all of the
+ conditions evaluate to true, then the entire map evaluates to true. <code>OR</code>
+ - If at least one of the conditions evaluate to true, then the entire map
+ evaluates to true. If you omit <em>ConditionalOperator</em>, then <code>AND</code> is the
+ default. The operation will succeed only if the entire map evaluates to
+ true.</p></div></div><div class="top"><p class="src"><a name="v:piExpected" class="def">piExpected</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:ExpectedAttributeValue">ExpectedAttributeValue</a>)</p><div class="doc"><p>There is a newer parameter available. Use <em>ConditionExpression</em> instead.
+ Note that if you use <em>Expected</em> and <em> ConditionExpression </em> at the same
+ time, DynamoDB will return a <em>ValidationException</em> exception. This
+ parameter does not support lists or maps. A map of attribute/condition
+ pairs. <em>Expected</em> provides a conditional block for the <em>PutItem</em>
+ operation. Each element of <em>Expected</em> consists of an attribute name, a
+ comparison operator, and one or more values. DynamoDB compares the
+ attribute with the value(s) you supplied, using the comparison operator.
+ For each <em>Expected</em> element, the result of the evaluation is either true
+ or false. If you specify more than one element in the <em>Expected</em> map,
+ then by default all of the conditions must evaluate to true. In other
+ words, the conditions are ANDed together. (You can use the
+ <em>ConditionalOperator</em> parameter to OR the conditions instead. If you do
+ this, then at least one of the conditions must evaluate to true, rather
+ than all of them.) If the <em>Expected</em> map evaluates to true, then the
+ conditional operation succeeds; otherwise, it fails. <em>Expected</em> contains
+ the following: <em>AttributeValueList</em> - One or more values to evaluate
+ against the supplied attribute. The number of values in the list depends
+ on the <em>ComparisonOperator</em> being used. For type Number, value
+ comparisons are numeric. String value comparisons for greater than,
+ equals, or less than are based on ASCII character code values. For
+ example, <code>a</code> is greater than <code>A</code>, and <code>aa</code> is greater than <code>B</code>. For a
  list of code values, see
- http:/<em>en.wikipedia.org</em>wiki/ASCII#ASCII_printable_characters. For type
+ &lt;<a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>
+ http:/<em>en.wikipedia.org</em>wiki/ASCII#ASCII_printable_characters&gt;. For type
  Binary, DynamoDB treats each byte of the binary data as unsigned when it
  compares binary values, for example when evaluating query expressions.
- ComparisonOperator - A comparator for evaluating attributes in the
- AttributeValueList. When performing the comparison, DynamoDB uses
+ <em>ComparisonOperator</em> - A comparator for evaluating attributes in the
+ <em>AttributeValueList</em>. When performing the comparison, DynamoDB uses
  strongly consistent reads. The following comparison operators are
- available: EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
- NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN The following are descriptions
- of each comparison operator. EQ : Equal. EQ is supported for all
- datatypes, including lists and maps. AttributeValueList can contain only
- one AttributeValue element of type String, Number, Binary, String Set,
- Number Set, or Binary Set. If an item contains an AttributeValue element
- of a different type than the one specified in the request, the value does
- not match. For example, {<a href="S.html">S</a>:&quot;6&quot;} does not equal {<a href="N.html">N</a>:&quot;6&quot;}. Also,
- {<a href="N.html">N</a>:&quot;6&quot;} does not equal {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}. NE : Not equal. NE is
- supported for all datatypes, including lists and maps. AttributeValueList
- can contain only one AttributeValue of type String, Number, Binary,
- String Set, Number Set, or Binary Set. If an item contains an
- AttributeValue of a different type than the one specified in the request,
- the value does not match. For example, {<a href="S.html">S</a>:&quot;6&quot;} does not equal
- {<a href="N.html">N</a>:&quot;6&quot;}. Also, {<a href="N.html">N</a>:&quot;6&quot;} does not equal {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}. LE :
- Less than or equal. AttributeValueList can contain only one
- AttributeValue element of type String, Number, or Binary (not a set
- type). If an item contains an AttributeValue element of a different type
- than the one specified in the request, the value does not match. For
- example, {<a href="S.html">S</a>:&quot;6&quot;} does not equal {<a href="N.html">N</a>:&quot;6&quot;}. Also, {<a href="N.html">N</a>:&quot;6&quot;} does not
- compare to {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}. LT : Less than. AttributeValueList can
- contain only one AttributeValue of type String, Number, or Binary (not a
- set type). If an item contains an AttributeValue element of a different
- type than the one specified in the request, the value does not match. For
- example, {<a href="S.html">S</a>:&quot;6&quot;} does not equal {<a href="N.html">N</a>:&quot;6&quot;}. Also, {<a href="N.html">N</a>:&quot;6&quot;} does not
- compare to {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}. GE : Greater than or equal.
- AttributeValueList can contain only one AttributeValue element of type
- String, Number, or Binary (not a set type). If an item contains an
- AttributeValue element of a different type than the one specified in the
- request, the value does not match. For example, {<a href="S.html">S</a>:&quot;6&quot;} does not equal
- {<a href="N.html">N</a>:&quot;6&quot;}. Also, {<a href="N.html">N</a>:&quot;6&quot;} does not compare to {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}. GT
- : Greater than. AttributeValueList can contain only one AttributeValue
- element of type String, Number, or Binary (not a set type). If an item
- contains an AttributeValue element of a different type than the one
+ available: <code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS |
+ NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code> The following are descriptions
+ of each comparison operator. <code>EQ</code> : Equal. <code>EQ</code> is supported for all
+ datatypes, including lists and maps. <em>AttributeValueList</em> can contain
+ only one <em>AttributeValue</em> element of type String, Number, Binary, String
+ Set, Number Set, or Binary Set. If an item contains an <em>AttributeValue</em>
+ element of a different type than the one specified in the request, the
+ value does not match. For example, <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not equal
+ <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also, <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not equal <code>{<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}</code>.
+ <code>NE</code> : Not equal. <code>NE</code> is supported for all datatypes, including lists
+ and maps. <em>AttributeValueList</em> can contain only one <em>AttributeValue</em> of
+ type String, Number, Binary, String Set, Number Set, or Binary Set. If an
+ item contains an <em>AttributeValue</em> of a different type than the one
  specified in the request, the value does not match. For example,
- {<a href="S.html">S</a>:&quot;6&quot;} does not equal {<a href="N.html">N</a>:&quot;6&quot;}. Also, {<a href="N.html">N</a>:&quot;6&quot;} does not compare to
- {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}. NOT_NULL : The attribute exists. NOT_NULL is
- supported for all datatypes, including lists and maps. NULL : The
- attribute does not exist. NULL is supported for all datatypes, including
- lists and maps. CONTAINS : Checks for a subsequence, or value in a set.
- AttributeValueList can contain only one AttributeValue element of type
- String, Number, or Binary (not a set type). If the target attribute of
- the comparison is of type String, then the operator checks for a
+ <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not equal <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also, <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not equal
+ <code>{<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}</code>. <code>LE</code> : Less than or equal. <em>AttributeValueList</em>
+ can contain only one <em>AttributeValue</em> element of type String, Number, or
+ Binary (not a set type). If an item contains an <em>AttributeValue</em> element
+ of a different type than the one specified in the request, the value does
+ not match. For example, <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not equal <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also,
+ <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not compare to <code>{<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}</code>. <code>LT</code> : Less
+ than. <em>AttributeValueList</em> can contain only one <em>AttributeValue</em> of type
+ String, Number, or Binary (not a set type). If an item contains an
+ <em>AttributeValue</em> element of a different type than the one specified in
+ the request, the value does not match. For example, <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not
+ equal <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also, <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not compare to <code>{<a href="NS.html">NS</a>:[&quot;6&quot;,
+ &quot;2&quot;, &quot;1&quot;]}</code>. <code>GE</code> : Greater than or equal. <em>AttributeValueList</em> can
+ contain only one <em>AttributeValue</em> element of type String, Number, or
+ Binary (not a set type). If an item contains an <em>AttributeValue</em> element
+ of a different type than the one specified in the request, the value does
+ not match. For example, <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not equal <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also,
+ <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not compare to <code>{<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}</code>. <code>GT</code> : Greater
+ than. <em>AttributeValueList</em> can contain only one <em>AttributeValue</em> element
+ of type String, Number, or Binary (not a set type). If an item contains
+ an <em>AttributeValue</em> element of a different type than the one specified in
+ the request, the value does not match. For example, <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not
+ equal <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also, <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not compare to <code>{<a href="NS.html">NS</a>:[&quot;6&quot;,
+ &quot;2&quot;, &quot;1&quot;]}</code>. <code>NOT_NULL</code> : The attribute exists. <code>NOT_NULL</code> is supported
+ for all datatypes, including lists and maps. <code>NULL</code> : The attribute does
+ not exist. <code>NULL</code> is supported for all datatypes, including lists and
+ maps. <code>CONTAINS</code> : Checks for a subsequence, or value in a set.
+ <em>AttributeValueList</em> can contain only one <em>AttributeValue</em> element of
+ type String, Number, or Binary (not a set type). If the target attribute
+ of the comparison is of type String, then the operator checks for a
  substring match. If the target attribute of the comparison is of type
  Binary, then the operator looks for a subsequence of the target that
  matches the input. If the target attribute of the comparison is a set
- (<a href="SS.html">SS</a>, <a href="NS.html">NS</a>, or <a href="BS.html">BS</a>), then the operator evaluates to true if it finds an
- exact match with any member of the set. CONTAINS is supported for lists:
- When evaluating &quot;a CONTAINS b&quot;, &quot;a&quot; can be a list; however, &quot;b&quot; cannot be
- a set, a map, or a list. NOT_CONTAINS : Checks for absence of a
- subsequence, or absence of a value in a set. AttributeValueList can
- contain only one AttributeValue element of type String, Number, or Binary
- (not a set type). If the target attribute of the comparison is a String,
- then the operator checks for the absence of a substring match. If the
- target attribute of the comparison is Binary, then the operator checks
- for the absence of a subsequence of the target that matches the input. If
- the target attribute of the comparison is a set (<a href="SS.html">SS</a>, <a href="NS.html">NS</a>, or <a href="BS.html">BS</a>),
- then the operator evaluates to true if it does not find an exact match
- with any member of the set. NOT_CONTAINS is supported for lists: When
- evaluating &quot;a NOT CONTAINS b&quot;, &quot;a&quot; can be a list; however, &quot;b&quot; cannot be
- a set, a map, or a list. BEGINS_WITH : Checks for a prefix.
- AttributeValueList can contain only one AttributeValue of type String or
- Binary (not a Number or a set type). The target attribute of the
- comparison must be of type String or Binary (not a Number or a set type).
- IN : Checks for matching elements within two sets. AttributeValueList can
- contain one or more AttributeValue elements of type String, Number, or
- Binary (not a set type). These attributes are compared against an
- existing set type attribute of an item. If any elements of the input set
- are present in the item attribute, the expression evaluates to true.
- BETWEEN : Greater than or equal to the first value, and less than or
- equal to the second value. AttributeValueList must contain two
- AttributeValue elements of the same type, either String, Number, or
- Binary (not a set type). A target attribute matches if the target value
- is greater than, or equal to, the first element and less than, or equal
- to, the second element. If an item contains an AttributeValue element of
- a different type than the one specified in the request, the value does
- not match. For example, {<a href="S.html">S</a>:&quot;6&quot;} does not compare to {<a href="N.html">N</a>:&quot;6&quot;}. Also,
- {<a href="N.html">N</a>:&quot;6&quot;} does not compare to {<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]} For usage examples
- of AttributeValueList and ComparisonOperator, see Legacy Conditional
- Parameters in the Amazon DynamoDB Developer Guide. For backward
- compatibility with previous DynamoDB releases, the following parameters
- can be used instead of AttributeValueList and ComparisonOperator: Value -
- A value for DynamoDB to compare with an attribute. Exists - A Boolean
- value that causes DynamoDB to evaluate the value before attempting the
- conditional operation: If Exists is true, DynamoDB will check to see if
- that attribute value already exists in the table. If it is found, then
- the condition evaluates to true; otherwise the condition evaluate to
- false. If Exists is false, DynamoDB assumes that the attribute value does
- not exist in the table. If in fact the value does not exist, then the
- assumption is valid and the condition evaluates to true. If the value is
- found, despite the assumption that it does not exist, the condition
- evaluates to false. The Value and Exists parameters are incompatible with
- AttributeValueList and ComparisonOperator. Note that if you use both sets
- of parameters at once, DynamoDB will return a ValidationException
+ (&quot;<code>SS</code>&quot;, &quot;<code>NS</code>&quot;, or &quot;<code>BS</code>&quot;), then the operator evaluates to true if it
+ finds an exact match with any member of the set. CONTAINS is supported
+ for lists: When evaluating &quot;<code>a CONTAINS b</code>&quot;, &quot;<code>a</code>&quot; can be a list;
+ however, &quot;<code>b</code>&quot; cannot be a set, a map, or a list. <code>NOT_CONTAINS</code> : Checks
+ for absence of a subsequence, or absence of a value in a set.
+ <em>AttributeValueList</em> can contain only one <em>AttributeValue</em> element of
+ type String, Number, or Binary (not a set type). If the target attribute
+ of the comparison is a String, then the operator checks for the absence
+ of a substring match. If the target attribute of the comparison is
+ Binary, then the operator checks for the absence of a subsequence of the
+ target that matches the input. If the target attribute of the comparison
+ is a set (&quot;<code>SS</code>&quot;, &quot;<code>NS</code>&quot;, or &quot;<code>BS</code>&quot;), then the operator evaluates to true
+ if it <em>does not</em> find an exact match with any member of the set.
+ NOT_CONTAINS is supported for lists: When evaluating &quot;<code>a NOT CONTAINS
+ b</code>&quot;, &quot;<code>a</code>&quot; can be a list; however, &quot;<code>b</code>&quot; cannot be a set, a map, or a
+ list. <code>BEGINS_WITH</code> : Checks for a prefix. <em>AttributeValueList</em> can
+ contain only one <em>AttributeValue</em> of type String or Binary (not a Number
+ or a set type). The target attribute of the comparison must be of type
+ String or Binary (not a Number or a set type). <code>IN</code> : Checks for matching
+ elements within two sets. <em>AttributeValueList</em> can contain one or more
+ <em>AttributeValue</em> elements of type String, Number, or Binary (not a set
+ type). These attributes are compared against an existing set type
+ attribute of an item. If any elements of the input set are present in the
+ item attribute, the expression evaluates to true. <code>BETWEEN</code> : Greater
+ than or equal to the first value, and less than or equal to the second
+ value. <em>AttributeValueList</em> must contain two <em>AttributeValue</em> elements of
+ the same type, either String, Number, or Binary (not a set type). A
+ target attribute matches if the target value is greater than, or equal
+ to, the first element and less than, or equal to, the second element. If
+ an item contains an <em>AttributeValue</em> element of a different type than the
+ one specified in the request, the value does not match. For example,
+ <code>{<a href="S.html">S</a>:&quot;6&quot;}</code> does not compare to <code>{<a href="N.html">N</a>:&quot;6&quot;}</code>. Also, <code>{<a href="N.html">N</a>:&quot;6&quot;}</code> does not
+ compare to <code>{<a href="NS.html">NS</a>:[&quot;6&quot;, &quot;2&quot;, &quot;1&quot;]}</code> For usage examples of
+ <em>AttributeValueList</em> and <em>ComparisonOperator</em>, see
+ &lt;<a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html</a>
+ Legacy Conditional Parameters&gt; in the <em>Amazon DynamoDB Developer Guide</em>.
+ For backward compatibility with previous DynamoDB releases, the following
+ parameters can be used instead of <em>AttributeValueList</em> and
+ <em>ComparisonOperator</em>: <em>Value</em> - A value for DynamoDB to compare with an
+ attribute. <em>Exists</em> - A Boolean value that causes DynamoDB to evaluate
+ the value before attempting the conditional operation: If <em>Exists</em> is
+ <code>true</code>, DynamoDB will check to see if that attribute value already exists
+ in the table. If it is found, then the condition evaluates to true;
+ otherwise the condition evaluate to false. If <em>Exists</em> is <code>false</code>,
+ DynamoDB assumes that the attribute value does <em>not</em> exist in the table.
+ If in fact the value does not exist, then the assumption is valid and the
+ condition evaluates to true. If the value is found, despite the
+ assumption that it does not exist, the condition evaluates to false. The
+ <em>Value</em> and <em>Exists</em> parameters are incompatible with
+ <em>AttributeValueList</em> and <em>ComparisonOperator</em>. Note that if you use both
+ sets of parameters at once, DynamoDB will return a <em>ValidationException</em>
  exception.</p></div></div><div class="top"><p class="src"><a name="v:piExpressionAttributeNames" class="def">piExpressionAttributeNames</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a>)</p><div class="doc"><p>One or more substitution tokens for simplifying complex expressions. The
- following are some use cases for an ExpressionAttributeNames value: To
+ following are some use cases for an <em>ExpressionAttributeNames</em> value: To
  shorten an attribute name that is very long or unwieldy in an expression.
  To create a placeholder for repeating occurrences of an attribute name in
  an expression. To prevent special characters in an attribute name from
  being misinterpreted in an expression. Use the # character in an
  expression to dereference an attribute name. For example, consider the
- following expression: order.customerInfo.LastName = <a href="Smith.html">Smith</a> OR
- order.customerInfo.LastName = <a href="Jones.html">Jones</a> Now suppose that you specified the
- following for ExpressionAttributeNames:
- {&quot;n&quot;:&quot;order.customerInfo.LastName&quot;} The expression can now be simplified
- as follows: <a name="n = &quot;Smith&quot; OR "></a>n = <a href="Jones.html">Jones</a>.</p></div></div><div class="top"><p class="src"><a name="v:piExpressionAttributeValues" class="def">piExpressionAttributeValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</p><div class="doc"><p>One or more values that can be substituted in an expression. Use the :
+ following expression: <code>order.customerInfo.LastName = <a href="Smith.html">Smith</a> OR
+ order.customerInfo.LastName = <a href="Jones.html">Jones</a></code> Now suppose that you specified the
+ following for <em>ExpressionAttributeNames</em>:
+ <code>{&quot;n&quot;:&quot;order.customerInfo.LastName&quot;}</code> The expression can now be
+ simplified as follows: <code><a name="n = &quot;Smith&quot; OR "></a>n = <a href="Jones.html">Jones</a></code>.</p></div></div><div class="top"><p class="src"><a name="v:piExpressionAttributeValues" class="def">piExpressionAttributeValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</p><div class="doc"><p>One or more values that can be substituted in an expression. Use the :
  character in an expression to dereference an attribute value. For
- example, consider the following expression: ProductStatus IN
- (<a href="Available.html">Available</a>,<a href="Backordered.html">Backordered</a>,<a href="Discontinued.html">Discontinued</a>) Now suppose that you specified
- the following for ExpressionAttributeValues: { &quot;a&quot;:{<a href="S.html">S</a>:<a href="Available.html">Available</a>},
- &quot;b&quot;:{<a href="S.html">S</a>:<a href="Backordered.html">Backordered</a>}, &quot;d&quot;:{<a href="S.html">S</a>:<a href="Discontinued.html">Discontinued</a>} } The expression can
- now be simplified as follows: ProductStatus IN (:a,:b,:c).</p></div></div><div class="top"><p class="src"><a name="v:piItem" class="def">piItem</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</p><div class="doc"><p>A map of attribute name/value pairs, one for each attribute. Only the
+ example, consider the following expression: <code>ProductStatus IN
+ (<a href="Available.html">Available</a>,<a href="Backordered.html">Backordered</a>,<a href="Discontinued.html">Discontinued</a>)</code> Now suppose that you
+ specified the following for <em>ExpressionAttributeValues</em>: <code>{
+ &quot;a&quot;:{<a href="S.html">S</a>:<a href="Available.html">Available</a>}, &quot;b&quot;:{<a href="S.html">S</a>:<a href="Backordered.html">Backordered</a>}, &quot;d&quot;:{<a href="S.html">S</a>:<a href="Discontinued.html">Discontinued</a>}
+ }</code> The expression can now be simplified as follows: <code>ProductStatus IN
+ (:a,:b,:c)</code>.</p></div></div><div class="top"><p class="src"><a name="v:piItem" class="def">piItem</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</p><div class="doc"><p>A map of attribute name/value pairs, one for each attribute. Only the
  primary key attributes are required; you can optionally provide other
  attribute name-value pairs for the item. You must provide all of the
  attributes for the primary key. For example, with a hash type primary
@@ -176,24 +186,27 @@ window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-DynamoDB-P
  attribute. If you specify any attributes that are part of an index key,
  then the data types for those attributes must match those of the schema
  in the table's attribute definition. For more information about primary
- keys, see Primary Key in the Amazon DynamoDB Developer Guide. Each
- element in the Item map is an AttributeValue object.</p></div></div><div class="top"><p class="src"><a name="v:piReturnConsumedCapacity" class="def">piReturnConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnConsumedCapacity">ReturnConsumedCapacity</a>)</p></div><div class="top"><p class="src"><a name="v:piReturnItemCollectionMetrics" class="def">piReturnItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnItemCollectionMetrics">ReturnItemCollectionMetrics</a>)</p><div class="doc"><p>A value that if set to SIZE, the response includes statistics about item
- collections, if any, that were modified during the operation are returned
- in the response. If set to NONE (the default), no statistics are
- returned.</p></div></div><div class="top"><p class="src"><a name="v:piReturnValues" class="def">piReturnValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnValue">ReturnValue</a>)</p><div class="doc"><p>Use ReturnValues if you want to get the item attributes as they appeared
- before they were updated with the PutItem request. For PutItem, the valid
- values are: NONE - If ReturnValues is not specified, or if its value is
- NONE, then nothing is returned. (This setting is the default for
- ReturnValues.) ALL_OLD - If PutItem overwrote an attribute name-value
- pair, then the content of the old item is returned.</p></div></div><div class="top"><p class="src"><a name="v:piTableName" class="def">piTableName</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></p><div class="doc"><p>The name of the table to contain the item.</p></div></div><h1 id="g:4">Response</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:PutItemResponse" class="def">PutItemResponse</a></p><div class="subs instances"><p id="control.i:PutItemResponse" class="caption collapser" onclick="toggleSection('i:PutItemResponse')">Instances</p><div id="section.i:PutItemResponse" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Eq.html#t:Eq">Eq</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:FromJSON">FromJSON</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><h2 id="g:5">Response constructor</h2><div class="top"><p class="src"><a name="v:putItemResponse" class="def">putItemResponse</a> :: <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></p><div class="doc"><p><code><a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></code> constructor.</p><p>The fields accessible through corresponding lenses are:</p><ul><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:pirAttributes">pirAttributes</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:pirConsumedCapacity">pirConsumedCapacity</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ConsumedCapacity">ConsumedCapacity</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:pirItemCollectionMetrics">pirItemCollectionMetrics</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ItemCollectionMetrics">ItemCollectionMetrics</a></code></li></ul></div></div><h2 id="g:6">Response lenses</h2><div class="top"><p class="src"><a name="v:pirAttributes" class="def">pirAttributes</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</p><div class="doc"><p>The attribute values as they appeared before the PutItem operation, but
- only if ReturnValues is specified as ALL_OLD in the request. Each element
- consists of an attribute name and an attribute value.</p></div></div><div class="top"><p class="src"><a name="v:pirConsumedCapacity" class="def">pirConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConsumedCapacity">ConsumedCapacity</a>)</p></div><div class="top"><p class="src"><a name="v:pirItemCollectionMetrics" class="def">pirItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ItemCollectionMetrics">ItemCollectionMetrics</a>)</p><div class="doc"><p>Information about item collections, if any, that were affected by the
- operation. ItemCollectionMetrics is only returned if the request asked
+ keys, see
+ &lt;<a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey</a>
+ Primary Key&gt; in the <em>Amazon DynamoDB Developer Guide</em>. Each element in
+ the <em>Item</em> map is an <em>AttributeValue</em> object.</p></div></div><div class="top"><p class="src"><a name="v:piReturnConsumedCapacity" class="def">piReturnConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnConsumedCapacity">ReturnConsumedCapacity</a>)</p></div><div class="top"><p class="src"><a name="v:piReturnItemCollectionMetrics" class="def">piReturnItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnItemCollectionMetrics">ReturnItemCollectionMetrics</a>)</p><div class="doc"><p>A value that if set to <code>SIZE</code>, the response includes statistics about
+ item collections, if any, that were modified during the operation are
+ returned in the response. If set to <code>NONE</code> (the default), no statistics
+ are returned.</p></div></div><div class="top"><p class="src"><a name="v:piReturnValues" class="def">piReturnValues</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ReturnValue">ReturnValue</a>)</p><div class="doc"><p>Use <em>ReturnValues</em> if you want to get the item attributes as they
+ appeared before they were updated with the <em>PutItem</em> request. For
+ <em>PutItem</em>, the valid values are: <code>NONE</code> - If <em>ReturnValues</em> is not
+ specified, or if its value is <code>NONE</code>, then nothing is returned. (This
+ setting is the default for <em>ReturnValues</em>.) <code>ALL_OLD</code> - If <em>PutItem</em>
+ overwrote an attribute name-value pair, then the content of the old item
+ is returned.</p></div></div><div class="top"><p class="src"><a name="v:piTableName" class="def">piTableName</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItem">PutItem</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></p><div class="doc"><p>The name of the table to contain the item.</p></div></div><h1 id="g:4">Response</h1><div class="top"><p class="src"><span class="keyword">data</span> <a name="t:PutItemResponse" class="def">PutItemResponse</a></p><div class="subs instances"><p id="control.i:PutItemResponse" class="caption collapser" onclick="toggleSection('i:PutItemResponse')">Instances</p><div id="section.i:PutItemResponse" class="show"><table><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Eq.html#t:Eq">Eq</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Text-Show.html#t:Show">Show</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr><tr><td class="src"><a href="../amazonka-core/Network-AWS-Data.html#t:FromJSON">FromJSON</a> <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></td><td class="doc empty">&nbsp;</td></tr></table></div></div></div><h2 id="g:5">Response constructor</h2><div class="top"><p class="src"><a name="v:putItemResponse" class="def">putItemResponse</a> :: <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></p><div class="doc"><p><code><a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a></code> constructor.</p><p>The fields accessible through corresponding lenses are:</p><ul><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:pirAttributes">pirAttributes</a></code> <code>::</code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a></code> <code><a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:pirConsumedCapacity">pirConsumedCapacity</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ConsumedCapacity">ConsumedCapacity</a></code></li><li><code><a href="Network-AWS-DynamoDB-PutItem.html#v:pirItemCollectionMetrics">pirItemCollectionMetrics</a></code> <code>::</code> <code><a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="Network-AWS-DynamoDB-Types.html#t:ItemCollectionMetrics">ItemCollectionMetrics</a></code></li></ul></div></div><h2 id="g:6">Response lenses</h2><div class="top"><p class="src"><a name="v:pirAttributes" class="def">pirAttributes</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="../amazonka-core/Network-AWS-Prelude.html#t:HashMap">HashMap</a> <a href="../amazonka-core/Network-AWS-Prelude.html#t:Text">Text</a> <a href="Network-AWS-DynamoDB-Types.html#t:AttributeValue">AttributeValue</a>)</p><div class="doc"><p>The attribute values as they appeared before the <em>PutItem</em> operation, but
+ only if <em>ReturnValues</em> is specified as <code>ALL_OLD</code> in the request. Each
+ element consists of an attribute name and an attribute value.</p></div></div><div class="top"><p class="src"><a name="v:pirConsumedCapacity" class="def">pirConsumedCapacity</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ConsumedCapacity">ConsumedCapacity</a>)</p></div><div class="top"><p class="src"><a name="v:pirItemCollectionMetrics" class="def">pirItemCollectionMetrics</a> :: Lens' <a href="Network-AWS-DynamoDB-PutItem.html#t:PutItemResponse">PutItemResponse</a> (<a href="http://hackage.haskell.org/packages/archive/base/4.7.0.1/doc/html/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Network-AWS-DynamoDB-Types.html#t:ItemCollectionMetrics">ItemCollectionMetrics</a>)</p><div class="doc"><p>Information about item collections, if any, that were affected by the
+ operation. <em>ItemCollectionMetrics</em> is only returned if the request asked
  for it. If the table does not have any local secondary indexes, this
- information is not returned in the response. Each ItemCollectionMetrics
- element consists of: ItemCollectionKey - The hash key value of the item
+ information is not returned in the response. Each <em>ItemCollectionMetrics</em>
+ element consists of: <em>ItemCollectionKey</em> - The hash key value of the item
  collection. This is the same as the hash key of the item.
- SizeEstimateRange - An estimate of item collection size, in gigabytes.
+ <em>SizeEstimateRange</em> - An estimate of item collection size, in gigabytes.
  This value is a two-element array containing a lower bound and an upper
  bound for the estimate. The estimate includes the size of all the items
  in the table, plus the size of all attributes projected into all of the
