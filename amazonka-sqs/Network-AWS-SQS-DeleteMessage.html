@@ -2,12 +2,11 @@
 window.onload = function () {pageLoad();setSynopsis("mini_Network-AWS-SQS-DeleteMessage.html");};
 //]]>
 </script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">amazonka-sqs-0.0.2: Amazon Simple Queue Service SDK.</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">Network.AWS.SQS.DeleteMessage</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Request</a><ul><li><a href="#g:2">Request constructor</a></li><li><a href="#g:3">Request lenses</a></li></ul></li><li><a href="#g:4">Response</a><ul><li><a href="#g:5">Response constructor</a></li></ul></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Deletes the specified message from the specified queue. You specify the
- message by using the message's 'receipt handle' and not the 'message ID'
- you received when you sent the message. Even if the message is locked by
- another reader due to the visibility timeout setting, it is still deleted
- from the queue. If you leave a message in the queue for longer than the
- queue's configured retention period, Amazon SQS automatically deletes it.
- It is possible you will receive a message even after you have deleted it.
+ message by using the message's 'receipt handle' and not the 'message ID' you
+ received when you sent the message. Even if the message is locked by another
+ reader due to the visibility timeout setting, it is still deleted from the
+ queue. If you leave a message in the queue for longer than the queue's
+ configured retention period, Amazon SQS automatically deletes it.</p><p>It is possible you will receive a message even after you have deleted it.
  This might happen on rare occasions if one of the servers storing a copy of
  the message is unavailable when you request to delete the message. The copy
  remains on the server and might be returned to you again on a subsequent
